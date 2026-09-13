@@ -1,0 +1,294 @@
+/* ==========================================================================
+   Dairy Pure & Organic (DPO) - 3D & Dynamic Animation Engine Styles
+   ========================================================================== */
+
+/* 3D Perspective Context */
+.tilt-card-3d,
+.product-card,
+.feature-card,
+.stat-item,
+.membership-highlight,
+.membership-card-visual,
+.hero-image-wrap,
+.process-card,
+.testimonial-card,
+.benefit-card,
+.team-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  position: relative;
+}
+
+/* 3D Card Hover Depth & Lift */
+.product-card:hover,
+.feature-card:hover,
+.process-card:hover,
+.testimonial-card:hover,
+.benefit-card:hover {
+  transform: translateY(-8px) scale3d(1.02, 1.02, 1.02);
+  box-shadow: 0 20px 35px -10px rgba(0, 56, 117, 0.18), 0 10px 15px -5px rgba(46, 125, 50, 0.1);
+  border-color: rgba(46, 125, 50, 0.3) !important;
+}
+
+/* Specular Light Glare Overlay for 3D Cards */
+.glare-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+  z-index: 5;
+}
+
+.tilt-card-3d:hover .glare-effect,
+.product-card:hover .glare-effect,
+.membership-card-visual:hover .glare-effect {
+  opacity: 1;
+}
+
+/* 3D Floating Hero Animation */
+@keyframes float3D {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(-12px) rotate(1.5deg) scale(1.015);
+  }
+  66% {
+    transform: translateY(6px) rotate(-1deg) scale(0.99);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes floatReverse3D {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.hero-image-wrap img,
+.floating-hero-element {
+  animation: float3D 6s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: floatReverse3D 8s ease-in-out infinite;
+}
+
+/* 3D Holographic Gold Card Effect */
+.holo-gold-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1e1b18 0%, #2a241b 50%, #151311 100%);
+  border: 2px solid #f59e0b;
+  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.25), 0 0 20px rgba(245, 158, 11, 0.15) inset;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.holo-gold-card:hover {
+  transform: translateY(-10px) rotateX(6deg) rotateY(-4deg) scale(1.03);
+  box-shadow: 0 25px 50px rgba(245, 158, 11, 0.4), 0 0 30px rgba(245, 158, 11, 0.3) inset;
+}
+
+.holo-gold-card::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    45deg,
+    transparent 20%,
+    rgba(255, 215, 0, 0.15) 30%,
+    rgba(255, 255, 255, 0.5) 38%,
+    rgba(255, 215, 0, 0.2) 46%,
+    transparent 55%
+  );
+  transform: rotate(35deg);
+  animation: holoShimmer 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes holoShimmer {
+  0% { transform: translateY(-100%) rotate(35deg); }
+  100% { transform: translateY(100%) rotate(35deg); }
+}
+
+/* 3D Canvas Hero Particles Background */
+.hero-3d-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content, .hero-image-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+/* 3D Scroll Reveal Animation Classes */
+[data-reveal-3d] {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96) rotateX(10deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+[data-reveal-3d].revealed-3d {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+[data-reveal-left] {
+  opacity: 0;
+  transform: translateX(-50px) rotateY(-8deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal-left].revealed-3d {
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg);
+}
+
+[data-reveal-right] {
+  opacity: 0;
+  transform: translateX(50px) rotateY(8deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal-right].revealed-3d {
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg);
+}
+
+/* Dynamic Stagger Delays */
+.stagger-1 { transition-delay: 0.1s !important; }
+.stagger-2 { transition-delay: 0.2s !important; }
+.stagger-3 { transition-delay: 0.3s !important; }
+.stagger-4 { transition-delay: 0.4s !important; }
+.stagger-5 { transition-delay: 0.5s !important; }
+.stagger-6 { transition-delay: 0.6s !important; }
+
+/* 3D Glowing Button Hover Ripple */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px -5px rgba(46, 125, 50, 0.35);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn .ripple-wave {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: rippleAnimation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Pulsing 3D Farm Fresh Glow Badge */
+.product-badge {
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+  animation: pulseBadge 3s infinite alternate;
+}
+
+@keyframes pulseBadge {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.5);
+  }
+}
+
+/* 3D Rotating Milk Bottle Accent */
+@keyframes spinSlow3D {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.icon-3d-spin {
+  display: inline-block;
+  animation: spinSlow3D 12s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* Dynamic Glowing Organic Droplets (Floating in Background) */
+.organic-orb-1, .organic-orb-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  animation: orbDrift 10s ease-in-out infinite alternate;
+}
+
+.organic-orb-1 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(67, 160, 71, 0.4) 0%, rgba(67, 160, 71, 0) 70%);
+  top: 10%;
+  right: -5%;
+}
+
+.organic-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(13, 110, 253, 0.3) 0%, rgba(13, 110, 253, 0) 70%);
+  bottom: 5%;
+  left: -8%;
+  animation-delay: -5s;
+}
+
+@keyframes orbDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.15); }
+  100% { transform: translate(-20px, 30px) scale(0.95); }
+}

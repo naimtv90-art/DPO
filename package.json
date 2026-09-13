@@ -1,0 +1,17 @@
+{
+  "name": "dpo-website-backend",
+  "version": "1.0.0",
+  "description": "Dairy Pure & Organic Backend API and AngularJS CMS",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "isomorphic-git": "^1.42.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}

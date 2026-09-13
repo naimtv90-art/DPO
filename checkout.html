@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>চেকআউট – Dairy Pure & Organic</title>
+    <meta name="description" content="Dairy Pure & Organic এর দুধ ও মেম্বারশিপ অর্ডারের চেকআউট সম্পন্ন করুন।">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations-3d.css">
+    <style>
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 35px;
+            align-items: start;
+        }
+        .checkout-box {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        .payment-option-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .payment-option-label:hover,
+        .payment-option-label.selected {
+            border-color: var(--dpo-blue);
+            background: #f0f7ff;
+        }
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span><i class="fa-solid fa-bullhorn"></i> 🚚 প্রতিদিন সকাল ও বিকালে সরাসরি খামার থেকে খাঁটি দুধ হোম ডেলিভারি!</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="tel:+8801712281861"><i class="fa-solid fa-phone"></i> +880 1712-281861</a>
+                <a href="https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk" target="_blank"><i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপ: +8801775002340</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <!-- Brand Logo -->
+                <div class="site-branding">
+                    <a href="index.html" class="site-logo">
+                        <img src="assets/images/logo.png" alt="Dairy Pure & Organic Logo">
+                        <div class="site-logo-text">
+                            Dairy Pure
+                            <span>& ORGANIC</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav class="main-navigation" id="site-navigation">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">হোম (Home)</a></li>
+                        <li><a href="shop.html">শপ (Shop)</a></li>
+                        <li><a href="membership.html">মেম্বারশিপ (Membership)</a></li>
+                        <li><a href="about.html">আমাদের সম্পর্কে (About Us)</a></li>
+                        <li><a href="contact.html">যোগাযোগ (Contact Us)</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <button class="theme-toggle-btn" id="theme-toggle-btn" title="ডার্ক / লাইট মোড পরিবর্তন করুন" aria-label="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+
+                    <button class="cart-btn" id="open-cart-btn" title="কার্ট দেখুন" aria-label="View Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-badge">0</span>
+                    </button>
+                    
+                    <a href="shop.html" class="btn btn-primary" style="padding: 10px 18px; font-size: 14px;">
+                        <i class="fa-solid fa-basket-shopping"></i> অর্ডার করুন
+                    </a>
+
+                    <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header Banner -->
+    <div class="page-header-banner">
+        <div class="container">
+            <h1 class="page-header-title">চেকআউট ও অর্ডার সম্পন্নকরণ</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">হোম</a> / <span>চেকআউট</span>
+            </div>
+        </div>
+    </div>
+
+    <main class="page-content" style="padding: 60px 0 80px;">
+        <div class="container">
+            <form id="checkout-form">
+                <div class="checkout-grid">
+                    <!-- Left: Delivery Details Form -->
+                    <div class="checkout-box">
+                        <h3 style="font-size: 20px; color: var(--dpo-blue-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-truck" style="color: var(--dpo-green);"></i> ডেলিভারি ও যোগাযোগের তথ্য
+                        </h3>
+
+                        <div class="form-group">
+                            <label class="form-label">আপনার পূর্ণ নাম *</label>
+                            <input type="text" id="cust-name" name="name" class="form-control" placeholder="যেমন: মো: আরিফুল ইসলাম" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">মোবাইল নম্বর (হোয়াটসঅ্যাপ নম্বর) *</label>
+                            <input type="tel" id="cust-phone" name="phone" class="form-control" placeholder="যেমন: 017XXXXXXXX" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">ডেলিভারি ঠিকানা (বাসা/রোড/এলাকা) *</label>
+                            <input type="text" id="cust-address" name="address" class="form-control" placeholder="যেমন: ফ্ল্যাট ৩এ, বাড়ি ১২, রোড ৪, ব্লক সি, মিরপুর-১২, ঢাকা" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">পছন্দের ডেলিভারি সময় *</label>
+                            <select id="cust-time" name="time" class="form-control" required>
+                                <option value="সকাল (৬:০০ - ৮:০০)">সকাল (৬:০০ - ৮:০০)</option>
+                                <option value="বিকাল (৫:০০ - ৭:০০)">বিকাল (৫:০০ - ৭:০০)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">বিশেষ নোট (ঐচ্ছিক)</label>
+                            <textarea id="cust-note" name="note" class="form-control" placeholder="ডেলিভারি সম্পর্কে বিশেষ কোনো নির্দেশনা থাকলে লিখুন..."></textarea>
+                        </div>
+
+                        <h4 style="font-size: 16px; color: var(--dpo-blue-dark); margin: 25px 0 12px;">পেমেন্ট মেথড সিলেক্ট করুন:</h4>
+                        <div class="payment-methods-list">
+                            <label class="payment-option-label selected">
+                                <input type="radio" name="payment_method" value="ক্যাশ অন ডেলিভারি (Cash On Delivery)" checked>
+                                <strong>ক্যাশ অন ডেলিভারি (পণ্য হাতে পেয়ে মূল্য পরিশোধ)</strong>
+                            </label>
+                            <label class="payment-option-label">
+                                <input type="radio" name="payment_method" value="বিকাশ (bKash)">
+                                <span>বিকাশ (bKash)</span>
+                            </label>
+                            <label class="payment-option-label">
+                                <input type="radio" name="payment_method" value="নগদ (Nagad)">
+                                <span>নগদ (Nagad)</span>
+                            </label>
+                            <label class="payment-option-label">
+                                <input type="radio" name="payment_method" value="রকেট (Rocket)">
+                                <span>রকেট (Rocket)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Right: Order Summary -->
+                    <div class="checkout-box" style="background: var(--cream-bg);">
+                        <h3 style="font-size: 20px; color: var(--dpo-blue-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-receipt" style="color: var(--dpo-blue);"></i> অর্ডার সারাংশ
+                        </h3>
+
+                        <div id="checkout-items-list" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+                            <!-- Items populated by JS -->
+                        </div>
+
+                        <div style="border-top: 1px solid var(--border-color); padding-top: 15px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14.5px;">
+                                <span>সাবটোটাল:</span>
+                                <strong id="checkout-subtotal">৳ 0</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14.5px;">
+                                <span>হোম ডেলিভারি চার্জ:</span>
+                                <strong style="color: var(--dpo-green);">ফ্রি / আলোচনা সাপেক্ষে</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: 800; color: var(--dpo-blue-dark); border-top: 2px solid var(--border-color); padding-top: 10px;">
+                                <span>সর্বমোট মূল্য:</span>
+                                <span id="checkout-grand-total" style="color: var(--dpo-blue);">৳ 0</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 16px;">
+                                <i class="fa-solid fa-circle-check"></i> অর্ডার কনফার্ম করুন
+                            </button>
+                            <button type="button" class="btn btn-whatsapp" onclick="window.generateWhatsAppOrder()" style="width: 100%; padding: 13px; font-size: 15px;">
+                                <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে অর্ডার পাঠান
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand Story -->
+                <div class="footer-widget">
+                    <div style="margin-bottom: 15px;">
+                        <img src="assets/images/logo.png" alt="Dairy Pure & Organic Logo" style="height: 60px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+                    </div>
+                    <p style="font-size: 14px; line-height: 1.7; margin-bottom: 20px;">
+                        <strong>Dairy Pure & Organic (DPO)</strong> — সরাসরি নিজস্ব প্রাকৃতিক খামারের ঘাস খাওয়া দেশি ও উন্নত জাতের গাভী থেকে সংগৃহীত ১০০% ভেজালমুক্ত, তাজা ও পুষ্টিকর দুধ পৌঁছে দিচ্ছি আপনার দোরগোড়ায়।
+                    </p>
+                    <div style="display: flex; gap: 12px;">
+                        <a href="https://www.facebook.com/profile.php?id=61594216073081" target="_blank" style="background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;" title="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://wa.me/8801775002340" target="_blank" style="background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-widget">
+                    <h4>প্রয়োজনীয় লিংক</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> হোম পেজ</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> আমাদের শপ / পণ্য</a></li>
+                        <li><a href="membership.html"><i class="fa-solid fa-angle-right"></i> মেম্বারশিপ কার্ড</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> আমাদের সম্পর্কে</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> যোগাযোগ ও অর্ডার</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Popular Products -->
+                <div class="footer-widget">
+                    <h4>আমাদের প্যাকেজসমূহ</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html"><i class="fa-solid fa-bottle-droplet"></i> খাঁটি তরল দুধ (১ লিটার / ১ কেজি)</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-bottle-droplet"></i> ফ্যামিলি প্যাক (৫ লিটার / ৫ কেজি)</a></li>
+                        <li><a href="membership.html"><i class="fa-solid fa-id-card"></i> ৫০ টাকার আজীবন মেম্বারশিপ কার্ড</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & Delivery -->
+                <div class="footer-widget">
+                    <h4>যোগাযোগ ও ঠিকানা</h4>
+                    <div style="font-size: 14px; display: flex; flex-direction: column; gap: 10px;">
+                        <div><i class="fa-solid fa-location-dot" style="color: var(--dpo-sun); margin-right: 8px;"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>
+                        <div><i class="fa-solid fa-phone" style="color: var(--dpo-green); margin-right: 8px;"></i> <a href="tel:+8801712281861">+880 1712-281861</a></div>
+                        <div><i class="fa-solid fa-phone" style="color: var(--dpo-green); margin-right: 8px;"></i> <a href="tel:+8801940738060">+880 1940-738060</a></div>
+                        <div><i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 8px;"></i> <a href="https://wa.me/8801775002340" target="_blank">+8801775002340</a></div>
+                        <div><i class="fa-solid fa-clock" style="color: var(--dpo-sun); margin-right: 8px;"></i> ডেলিভারি: সকাল ৬টা-৮টা | বিকাল ৫টা-৭টা</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    &copy; 2026 <strong>Dairy Pure & Organic</strong>. সর্বস্বত্ব সংরক্ষিত।
+                </div>
+                <div class="payment-methods">
+                    <span style="font-size: 13px; color: #94a3b8; margin-right: 5px;">পেমেন্ট মেথড:</span>
+                    <span class="payment-badge" style="background: #e2136e; color: #fff;">bKash</span>
+                    <span class="payment-badge" style="background: #f7931e; color: #fff;">Nagad</span>
+                    <span class="payment-badge" style="background: #8c3494; color: #fff;">Rocket</span>
+                    <span class="payment-badge" style="background: #0056b3; color: #fff;">Cash On Delivery</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Action -->
+    <a href="https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Cart Drawer Backdrop -->
+    <div class="cart-drawer-backdrop" id="cart-drawer-backdrop"></div>
+
+    <!-- Slide-out Cart Drawer -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fa-solid fa-cart-shopping" style="color: var(--dpo-blue);"></i> আপনার শপিং ব্যাগ</h3>
+            <button class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-drawer-body" id="cart-drawer-items">
+            <!-- Items injected by JavaScript -->
+        </div>
+        <div class="cart-drawer-footer" id="cart-drawer-footer">
+            <div class="cart-subtotal-row">
+                <span>সর্বমোট:</span>
+                <span id="cart-drawer-subtotal" style="color: var(--dpo-blue); font-size: 20px;">৳ 0</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="checkout.html" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 15px;">
+                    <i class="fa-solid fa-credit-card"></i> চেকআউট করুন
+                </a>
+                <button class="btn btn-whatsapp" id="cart-whatsapp-order" style="width: 100%; padding: 12px; font-size: 15px;">
+                    <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে সরাসরি অর্ডার
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function renderCheckout() {
+                const list = document.getElementById('checkout-items-list');
+                const subtotalEl = document.getElementById('checkout-subtotal');
+                const grandTotalEl = document.getElementById('checkout-grand-total');
+
+                let cart = [];
+                try {
+                    cart = JSON.parse(localStorage.getItem('dpo_cart') || '[]');
+                } catch(e) {
+                    cart = [];
+                }
+
+                if (!list) return;
+
+                if (cart.length === 0) {
+                    list.innerHTML = `<p style="color: var(--text-muted); font-size: 14px;">কোনো পণ্য কার্টে নেই। <a href="shop.html" style="color: var(--dpo-blue); font-weight: 600;">শপ থেকে পণ্য যোগ করুন</a></p>`;
+                    if (subtotalEl) subtotalEl.textContent = '৳ 0';
+                    if (grandTotalEl) grandTotalEl.textContent = '৳ 0';
+                    return;
+                }
+
+                let total = 0;
+                list.innerHTML = cart.map(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    return `
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; background: #fff; padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border-color);">
+                            <div>
+                                <strong style="color: var(--dpo-blue-dark);">${item.name}</strong>
+                                <div style="font-size: 12px; color: var(--text-muted);">পরিমাণ: ${item.quantity} × ৳${item.price}</div>
+                            </div>
+                            <strong style="color: var(--dpo-blue);">৳ ${itemTotal}</strong>
+                        </div>
+                    `;
+                }).join('');
+
+                if (subtotalEl) subtotalEl.textContent = `৳ ${total}`;
+                if (grandTotalEl) grandTotalEl.textContent = `৳ ${total}`;
+            }
+
+            renderCheckout();
+
+            // Handle checkout form submit
+            const form = document.getElementById('checkout-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    let cart = [];
+                    try {
+                        cart = JSON.parse(localStorage.getItem('dpo_cart') || '[]');
+                    } catch(e) {
+                        cart = [];
+                    }
+
+                    if (cart.length === 0) {
+                        alert('অনুগ্রহ করে প্রথমে কার্টে পণ্য যোগ করুন।');
+                        window.location.href = 'shop.html';
+                        return;
+                    }
+
+                    const name = document.getElementById('cust-name').value;
+                    const phone = document.getElementById('cust-phone').value;
+                    const address = document.getElementById('cust-address').value;
+                    const time = document.getElementById('cust-time').value;
+                    const note = document.getElementById('cust-note').value;
+                    const payment = document.querySelector('input[name="payment_method"]:checked')?.value || 'Cash on Delivery';
+
+                    let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+                    let msg = `*🥛 নতুন ডেইরি অর্ডার (Dairy Pure & Organic)*\n\n`;
+                    msg += `👤 কাস্টমার: ${name}\n`;
+                    msg += `📞 ফোন: ${phone}\n`;
+                    msg += `📍 ঠিকানা: ${address}\n`;
+                    msg += `⏰ ডেলিভারি সময়: ${time}\n`;
+                    msg += `💳 পেমেন্ট মাধ্যম: ${payment}\n`;
+                    if (note) msg += `📝 নোট: ${note}\n`;
+                    msg += `\n📦 *অর্ডারকৃত পণ্যসমূহ:*\n`;
+                    cart.forEach((it, idx) => {
+                        msg += `${idx + 1}. ${it.name} (${it.quantity} টি) - ৳${it.price * it.quantity}\n`;
+                    });
+                    msg += `\n💵 *সর্বমোট বিল: ৳${total}*\n`;
+
+                    const waUrl = `https://wa.me/8801775002340?text=${encodeURIComponent(msg)}`;
+                    
+                    // Clear cart
+                    localStorage.removeItem('dpo_cart');
+                    
+                    alert('আপনার অর্ডারটি সফলভাবে গৃহীত হয়েছে! আপনাকে হোয়াটসঅ্যাপে পাঠানো হচ্ছে...');
+                    window.open(waUrl, '_blank');
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations-3d.js"></script>
+</body>
+</html>

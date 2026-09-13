@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="bn" ng-app="dpoAdminApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPO Admin CMS – প্রোডাক্ট ম্যানেজমেন্ট প্যানেল</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="../assets/css/animations-3d.css">
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-controller="ProductController">
+
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="sidebar-header">
+            <img src="../assets/images/logo.png" alt="DPO Logo" class="sidebar-logo">
+            <div class="sidebar-title">
+                <h2>Dairy Pure</h2>
+                <span>Admin CMS Panel</span>
+            </div>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#/products" class="active">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span>প্রোডাক্ট ম্যানেজমেন্ট</span>
+                </a>
+            </li>
+            <li>
+                <a href="../shop.html" target="_blank">
+                    <i class="fa-solid fa-shop"></i>
+                    <span>শপ পেজ দেখুন</span>
+                </a>
+            </li>
+            <li>
+                <a href="../index.html" target="_blank">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>মেইন ওয়েবসাইট</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="../index.html">
+                <i class="fa-solid fa-house"></i>
+                <span>ওয়েবসাইটে ফিরে যান</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+        <!-- Top Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <h1>প্রোডাক্ট ক্যাটালগ ও ইনভেন্টরি</h1>
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle-btn" id="theme-toggle-btn" title="ডার্ক / লাইট মোড পরিবর্তন করুন" aria-label="Toggle Dark Mode" style="margin-right: 8px;">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <div class="admin-badge">
+                    <div class="dot"></div>
+                    <span>Node.js & AngularJS লাইভ</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Content -->
+        <div class="admin-container">
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>{{stats.total}}</h3>
+                        <p>মোট প্রোডাক্ট</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>{{stats.inStock}}</h3>
+                        <p>ইন স্টক (চালু)</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon red">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>{{stats.outOfStock}}</h3>
+                        <p>স্টক শেষ</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon gold">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>{{stats.categoriesCount}}</h3>
+                        <p>ক্যাটাগরি</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Toolbar & Filter -->
+            <div class="section-header">
+                <div class="section-title">
+                    <span>প্রোডাক্ট তালিকা</span>
+                </div>
+                <div class="toolbar">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="প্রোডাক্ট খুঁজুন..." ng-model="searchQuery">
+                    </div>
+
+                    <select class="filter-select" ng-model="selectedCategory">
+                        <option value="all">সব ক্যাটাগরি</option>
+                        <option ng-repeat="cat in categories" value="{{cat}}">{{cat}}</option>
+                    </select>
+
+                    <button class="btn btn-primary" ng-click="openAddModal()">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>নতুন প্রোডাক্ট যোগ করুন</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Table -->
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>প্রোডাক্ট</th>
+                                <th>ক্যাটাগরি</th>
+                                <th>মূল্য (BDT)</th>
+                                <th>মেম্বার মূল্য</th>
+                                <th>স্ট্যাটাস</th>
+                                <th style="text-align: right;">অ্যাকশন</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in products | filter:searchQuery | filter:(selectedCategory === 'all' ? '' : {category: selectedCategory})">
+                                <td>
+                                    <div class="product-cell">
+                                        <img ng-src="{{item.image ? '../' + item.image : '../assets/images/milk-1l.jpg'}}" alt="{{item.name}}" class="product-thumb">
+                                        <div>
+                                            <div class="product-info-name">{{item.name}}</div>
+                                            <div class="product-info-unit"><i class="fa-solid fa-box"></i> {{item.unit || '১ পিস'}}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge badge-category">{{item.category || 'সাধারণ'}}</span>
+                                </td>
+                                <td>
+                                    <div class="price-box">
+                                        <span class="regular-price">৳{{item.price}}</span>
+                                        <small ng-if="item.oldPrice" style="text-decoration: line-through; color: var(--text-muted);">৳{{item.oldPrice}}</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="member-price">৳{{item.memberPrice || item.price}}</span>
+                                </td>
+                                <td>
+                                    <button class="badge" ng-class="item.inStock ? 'badge-stock-in' : 'badge-stock-out'" ng-click="toggleStock(item)" style="border: none; cursor: pointer;" title="ক্লিক করে স্ট্যাটাস পরিবর্তন করুন">
+                                        <i class="fa-solid" ng-class="item.inStock ? 'fa-check' : 'fa-xmark'"></i>
+                                        {{item.inStock ? 'ইন স্টক' : 'স্টক শেষ'}}
+                                    </button>
+                                </td>
+                                <td style="text-align: right;">
+                                    <div class="action-btns" style="justify-content: flex-end;">
+                                        <button class="icon-btn" title="এডিট করুন" ng-click="openEditModal(item)">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button class="icon-btn delete" title="ডিলিট করুন" ng-click="confirmDelete(item)">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr ng-if="products.length === 0 && !loading">
+                                <td colspan="6">
+                                    <div class="empty-state">
+                                        <i class="fa-solid fa-box-open"></i>
+                                        <h4>কোনো প্রোডাক্ট পাওয়া যায়নি</h4>
+                                        <p>উপরের "নতুন প্রোডাক্ট যোগ করুন" বাটনে ক্লিক করে প্রথম প্রোডাক্ট যুক্ত করুন।</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add / Edit Modal -->
+    <div class="modal-overlay" ng-if="showModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>{{isEditing ? 'প্রোডাক্ট এডিট করুন' : 'নতুন প্রোডাক্ট যুক্ত করুন'}}</h3>
+                <button class="modal-close" ng-click="closeModal()">&times;</button>
+            </div>
+            <form ng-submit="saveProduct()">
+                <div class="modal-body">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label class="form-label">প্রোডাক্টের নাম *</label>
+                            <input type="text" class="form-control" ng-model="currentProduct.name" placeholder="যেমন: খাঁটি গাভীর তরল দুধ (১ লিটার)" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">ক্যাটাগরি</label>
+                            <input type="text" list="categoryOptions" class="form-control" ng-model="currentProduct.category" placeholder="ক্যাটাগরি সিলেক্ট বা টাইপ করুন">
+                            <datalist id="categoryOptions">
+                                <option ng-repeat="cat in categories" value="{{cat}}"></option>
+                            </datalist>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">প্যাকেজিং / ইউনিট</label>
+                            <input type="text" class="form-control" ng-model="currentProduct.unit" placeholder="যেমন: ১ লিটার বোতল / ৫০০ গ্রাম">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">সাধারণ বিক্রয় মূল্য (৳) *</label>
+                            <input type="number" class="form-control" ng-model="currentProduct.price" placeholder="১০০" required min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">মেম্বারশিপ মূল্য (৳)</label>
+                            <input type="number" class="form-control" ng-model="currentProduct.memberPrice" placeholder="৯৫ (মেম্বারদের জন্য ডিসকাউন্ট মূল্য)" min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">পূর্বের মূল্য / Old Price (৳) (যদি থাকে)</label>
+                            <input type="number" class="form-control" ng-model="currentProduct.oldPrice" placeholder="৫০">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label">প্রোডাক্টের ছবি আপলোড করুন</label>
+                            <div class="image-upload-wrapper">
+                                <div class="image-preview-box">
+                                    <img ng-if="imagePreview" ng-src="{{imagePreview}}" alt="Preview">
+                                    <i ng-if="!imagePreview" class="fa-solid fa-image" style="color: var(--text-muted); font-size: 28px;"></i>
+                                </div>
+                                <div class="image-upload-btn">
+                                    <input type="file" file-model="uploadFile" accept="image/*" class="form-control">
+                                    <small style="color: var(--text-muted); display: block; margin-top: 4px;">JPG, PNG, WebP ফরম্যাট সাপোর্টেড (সর্বোচ্চ ১০MB)</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label">বিবরণ (Description)</label>
+                            <textarea class="form-control" ng-model="currentProduct.description" placeholder="প্রোডাক্ট সম্পর্কে বিস্তারিত লিখুন..."></textarea>
+                        </div>
+
+                        <div class="form-group full-width" style="display: flex; gap: 24px;">
+                            <label class="checkbox-label">
+                                <input type="checkbox" ng-model="currentProduct.inStock">
+                                <span>ইন স্টক (In Stock)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" ng-model="currentProduct.featured">
+                                <span>হোমপেজে ফিচার্ড করুন (Featured)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" ng-click="closeModal()">বাতিল</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        <span>{{isEditing ? 'আপডেট সেভ করুন' : 'প্রোডাক্ট সংরক্ষণ করুন'}}</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" ng-if="showDeleteModal">
+        <div class="modal-dialog" style="max-width: 420px; text-align: center;">
+            <div class="modal-body" style="padding: 32px 24px;">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 50px; color: var(--danger); margin-bottom: 16px;"></i>
+                <h3 style="margin-bottom: 8px;">আপনি কি নিশ্চিত?</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">
+                    আপনি কি <strong>"{{productToDelete.name}}"</strong> প্রোডাক্টটি স্থায়ীভাবে মুছে ফেলতে চান?
+                </p>
+                <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px;">
+                    <button class="btn btn-secondary" ng-click="cancelDelete()">না, বাতিল</button>
+                    <button class="btn btn-danger" ng-click="deleteProduct()">
+                        <i class="fa-solid fa-trash"></i> হ্যাঁ, ডিলিট করুন
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container">
+        <div class="toast" ng-class="t.type" ng-repeat="t in toasts">
+            <i class="fa-solid" ng-class="t.type === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+            <span>{{t.message}}</span>
+        </div>
+    </div>
+
+</body>
+</html>

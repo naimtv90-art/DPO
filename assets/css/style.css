@@ -1680,3 +1680,92 @@ html[data-theme="dark"] .site-footer {
   border-top: 1px solid var(--border-color);
 }
 
+/* About Page Dark Mode Fixes */
+body.dark-mode .about-why-box,
+html[data-theme="dark"] .about-why-box {
+  background: #0f192c !important;
+  border-color: #1e2d42 !important;
+  color: #f8fafc !important;
+}
+
+body.dark-mode .about-why-box h3,
+html[data-theme="dark"] .about-why-box h3 {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .team-section,
+html[data-theme="dark"] .team-section {
+  background: #070d18 !important;
+}
+
+body.dark-mode .staff-team-section,
+html[data-theme="dark"] .staff-team-section {
+  background: #0b1426 !important;
+  border-top: 1px solid var(--border-color);
+}
+
+body.dark-mode .team-card,
+html[data-theme="dark"] .team-card {
+  background: #0f192c !important;
+  border-color: #1e2d42 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .team-card:hover,
+html[data-theme="dark"] .team-card:hover {
+  border-color: var(--dpo-blue-light) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .team-name,
+html[data-theme="dark"] .team-name {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .team-role,
+html[data-theme="dark"] .team-role {
+  color: #4ade80 !important;
+}
+
+body.dark-mode .team-desc,
+html[data-theme="dark"] .team-desc {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .team-badge,
+html[data-theme="dark"] .team-badge {
+  background: rgba(13, 110, 253, 0.15) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+body.dark-mode .team-photo-wrap,
+html[data-theme="dark"] .team-photo-wrap {
+  border-color: #1e2d42 !important;
+  background: #070d18 !important;
+}
+
+body.dark-mode .team-avatar-fallback,
+html[data-theme="dark"] .team-avatar-fallback {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .team-contact-btn,
+html[data-theme="dark"] .team-contact-btn {
+  background: #1e293b !important;
+  color: #38bdf8 !important;
+  border-color: #334155 !important;
+}
+
+body.dark-mode .team-contact-btn:hover,
+html[data-theme="dark"] .team-contact-btn:hover {
+  background: var(--dpo-blue) !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .team-contact-btn.wa:hover,
+html[data-theme="dark"] .team-contact-btn.wa:hover {
+  background: #25d366 !important;
+  color: #ffffff !important;
+}
+

@@ -34,6 +34,9 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
         }
+        .checkout-box.summary-box {
+            background: var(--cream-bg);
+        }
         .payment-option-label {
             display: flex;
             align-items: center;
@@ -49,6 +52,16 @@
         .payment-option-label.selected {
             border-color: var(--dpo-blue);
             background: #f0f7ff;
+        }
+        .checkout-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            background: #ffffff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
         }
         @media (max-width: 768px) {
             .checkout-grid {
@@ -169,7 +182,7 @@
                             <textarea id="cust-note" name="note" class="form-control" placeholder="ডেলিভারি সম্পর্কে বিশেষ কোনো নির্দেশনা থাকলে লিখুন..."></textarea>
                         </div>
 
-                        <h4 style="font-size: 16px; color: var(--dpo-blue-dark); margin: 25px 0 12px;">পেমেন্ট মেথড সিলেক্ট করুন:</h4>
+                        <h4 class="checkout-section-title">পেমেন্ট মেথড সিলেক্ট করুন:</h4>
                         <div class="payment-methods-list">
                             <label class="payment-option-label selected">
                                 <input type="radio" name="payment_method" value="ক্যাশ অন ডেলিভারি (Cash On Delivery)" checked>
@@ -191,31 +204,31 @@
                     </div>
 
                     <!-- Right: Order Summary -->
-                    <div class="checkout-box" style="background: var(--cream-bg);">
-                        <h3 style="font-size: 20px; color: var(--dpo-blue-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                    <div class="checkout-box summary-box">
+                        <h3 class="checkout-box-title">
                             <i class="fa-solid fa-receipt" style="color: var(--dpo-blue);"></i> অর্ডার সারাংশ
                         </h3>
 
-                        <div id="checkout-items-list" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+                        <div id="checkout-items-list" class="checkout-items-list">
                             <!-- Items populated by JS -->
                         </div>
 
-                        <div style="border-top: 1px solid var(--border-color); padding-top: 15px; margin-bottom: 20px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14.5px;">
+                        <div class="checkout-summary-divider">
+                            <div class="checkout-summary-row">
                                 <span>সাবটোটাল:</span>
                                 <strong id="checkout-subtotal">৳ 0</strong>
                             </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14.5px;">
+                            <div class="checkout-summary-row">
                                 <span>হোম ডেলিভারি চার্জ:</span>
                                 <strong style="color: var(--dpo-green);">ফ্রি / আলোচনা সাপেক্ষে</strong>
                             </div>
-                            <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: 800; color: var(--dpo-blue-dark); border-top: 2px solid var(--border-color); padding-top: 10px;">
+                            <div class="checkout-grand-total">
                                 <span>সর্বমোট মূল্য:</span>
-                                <span id="checkout-grand-total" style="color: var(--dpo-blue);">৳ 0</span>
+                                <span id="checkout-grand-total" class="checkout-grand-total-price">৳ 0</span>
                             </div>
                         </div>
 
-                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div class="checkout-buttons-group">
                             <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 16px;">
                                 <i class="fa-solid fa-circle-check"></i> অর্ডার কনফার্ম করুন
                             </button>
@@ -333,7 +346,9 @@
 
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations-3d.js"></script>
     <script>
+        // Checkout Page Specific Logic
         document.addEventListener('DOMContentLoaded', function() {
             function renderCheckout() {
                 const list = document.getElementById('checkout-items-list');
@@ -361,9 +376,9 @@
                     const itemTotal = item.price * item.quantity;
                     total += itemTotal;
                     return `
-                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; background: #fff; padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border-color);">
+                        <div class="checkout-item-row">
                             <div>
-                                <strong style="color: var(--dpo-blue-dark);">${item.name}</strong>
+                                <strong class="checkout-item-title">${item.name}</strong>
                                 <div style="font-size: 12px; color: var(--text-muted);">পরিমাণ: ${item.quantity} × ৳${item.price}</div>
                             </div>
                             <strong style="color: var(--dpo-blue);">৳ ${itemTotal}</strong>

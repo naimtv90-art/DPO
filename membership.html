@@ -110,32 +110,32 @@
                     </p>
 
                     <div style="display: flex; flex-direction: column; gap: 16px;">
-                        <div style="display: flex; gap: 15px; align-items: flex-start; background: #fff; padding: 18px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
+                        <div class="membership-benefit-item">
                             <div style="width: 44px; height: 44px; background: #fef3c7; color: #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
                                 <i class="fa-solid fa-tags"></i>
                             </div>
                             <div>
-                                <h4 style="font-size: 17px; margin-bottom: 4px; color: var(--dpo-blue-dark);">প্রতি লিটারে ৫ টাকা নিশ্চিত ক্যাশ ছাড়</h4>
+                                <h4 class="membership-benefit-title">প্রতি লিটারে ৫ টাকা নিশ্চিত ক্যাশ ছাড়</h4>
                                 <p style="font-size: 14px; color: var(--text-muted);">১ লিটার দুধ মাত্র ৳৯৫ (রেগুলার ৳১০০) এবং ৫ লিটার ফ্যামিলি প্যাক মাত্র ৳৪৫০ (রেগুলার ৳৫০০)।</p>
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: 15px; align-items: flex-start; background: #fff; padding: 18px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
+                        <div class="membership-benefit-item">
                             <div style="width: 44px; height: 44px; background: #e8f4fd; color: var(--dpo-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
                                 <i class="fa-solid fa-infinity"></i>
                             </div>
                             <div>
-                                <h4 style="font-size: 17px; margin-bottom: 4px; color: var(--dpo-blue-dark);">এককালীন ৫০ টাকা — আজীবন মেয়াদ</h4>
+                                <h4 class="membership-benefit-title">এককালীন ৫০ টাকা — আজীবন মেয়াদ</h4>
                                 <p style="font-size: 14px; color: var(--text-muted);">কোনো মাসিক ফি নেই, কোনো বার্ষিক রিনিউয়াল ফি নেই। কার্ডটির মেয়াদ সম্পূর্ণ লাইফটাইম।</p>
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: 15px; align-items: flex-start; background: #fff; padding: 18px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
+                        <div class="membership-benefit-item">
                             <div style="width: 44px; height: 44px; background: #dcfce7; color: var(--dpo-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
                                 <i class="fa-solid fa-truck-fast"></i>
                             </div>
                             <div>
-                                <h4 style="font-size: 17px; margin-bottom: 4px; color: var(--dpo-blue-dark);">প্রায়োরিটি ভোরের হোম ডেলিভারি</h4>
+                                <h4 class="membership-benefit-title">প্রায়োরিটি ভোরের হোম ডেলিভারি</h4>
                                 <p style="font-size: 14px; color: var(--text-muted);">মেম্বারদের জন্য প্রতিদিন সকাল ৬টা থেকে ৮টার মধ্যে নিশ্চিত হোম ডেলিভারি সার্ভিস।</p>
                             </div>
                         </div>
@@ -176,42 +176,42 @@
 
             <!-- Savings Calculator Table -->
             <div class="membership-calc-box">
-                <h3 style="font-size: 20px; color: var(--dpo-blue-dark); text-align: center; margin-bottom: 20px;">
+                <h3 class="membership-calc-title">
                     <i class="fa-solid fa-calculator" style="color: var(--dpo-green); margin-right: 8px;"></i> আপনার মাসিক ও বাৎসরিক সঞ্চয়ের হিসাব
                 </h3>
 
                 <div style="overflow-x: auto;">
-                    <table style="width: 100%; min-width: 500px; border-collapse: collapse; text-align: left; font-size: 14px;">
+                    <table class="dpo-savings-table">
                         <thead>
-                            <tr style="background: #e8f4fd; color: var(--dpo-blue-dark);">
-                                <th style="padding: 12px 14px; border: 1px solid var(--border-color);">দৈনিক গ্রহণের পরিমাণ</th>
-                                <th style="padding: 12px 14px; border: 1px solid var(--border-color);">রেগুলার খরচ (মাসিক)</th>
-                                <th style="padding: 12px 14px; border: 1px solid var(--border-color);">মেম্বারশিপ খরচ (মাসিক)</th>
-                                <th style="padding: 12px 14px; border: 1px solid var(--border-color); color: var(--dpo-green);">মাসিক সঞ্চয়</th>
-                                <th style="padding: 12px 14px; border: 1px solid var(--border-color); color: var(--dpo-green);">বাৎসরিক সঞ্চয়</th>
+                            <tr>
+                                <th>দৈনিক গ্রহণের পরিমাণ</th>
+                                <th>রেগুলার খরচ (মাসিক)</th>
+                                <th>মেম্বারশিপ খরচ (মাসিক)</th>
+                                <th style="color: var(--dpo-green);">মাসিক সঞ্চয়</th>
+                                <th style="color: var(--dpo-green);">বাৎসরিক সঞ্চয়</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color); font-weight: 600;">১ লিটার প্রতিদিন</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color);">৳ ৩,০০০</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color);">৳ ২,৮৫০</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color); font-weight: 700; color: var(--dpo-green);">৳ ১৫০</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color); font-weight: 800; color: var(--dpo-green);">৳ ১,৮০০</td>
-                            </tr>
-                            <tr style="background: #f8fafc;">
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color); font-weight: 600;">২ লিটার প্রতিদিন</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color);">৳ ৬,০০০</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color);">৳ ৫,৭০০</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color); font-weight: 700; color: var(--dpo-green);">৳ ৩০০</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color); font-weight: 800; color: var(--dpo-green);">৳ ৩,৬০০</td>
+                                <td style="font-weight: 600;">১ লিটার প্রতিদিন</td>
+                                <td>৳ ৩,০০০</td>
+                                <td>৳ ২,৮৫০</td>
+                                <td style="font-weight: 700; color: var(--dpo-green);">৳ ১৫০</td>
+                                <td style="font-weight: 800; color: var(--dpo-green);">৳ ১,৮০০</td>
                             </tr>
                             <tr>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color); font-weight: 600;">৫ লিটার প্রতিদিন (ফ্যামিলি)</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color);">৳ ১৫,০০০</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color);">৳ ১৩,৫০০</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color); font-weight: 700; color: var(--dpo-green);">৳ ৭৫০</td>
-                                <td style="padding: 12px 14px; border: 1px solid var(--border-color); font-weight: 800; color: var(--dpo-green);">৳ ৯,০০০</td>
+                                <td style="font-weight: 600;">২ লিটার প্রতিদিন</td>
+                                <td>৳ ৬,০০০</td>
+                                <td>৳ ৫,৭০০</td>
+                                <td style="font-weight: 700; color: var(--dpo-green);">৳ ৩০০</td>
+                                <td style="font-weight: 800; color: var(--dpo-green);">৳ ৩,৬০০</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600;">৫ লিটার প্রতিদিন (ফ্যামিলি)</td>
+                                <td>৳ ১৫,০০০</td>
+                                <td>৳ ১৩,৫০০</td>
+                                <td style="font-weight: 700; color: var(--dpo-green);">৳ ৭৫০</td>
+                                <td style="font-weight: 800; color: var(--dpo-green);">৳ ৯,০০০</td>
                             </tr>
                         </tbody>
                     </table>
@@ -219,10 +219,10 @@
             </div>
 
             <!-- Membership Registration Form -->
-            <div class="membership-form-box" style="background: #ffffff; padding: 35px 25px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); max-width: 700px; margin: 0 auto; box-shadow: var(--shadow-sm);">
+            <div class="membership-form-box">
                 <div class="section-header" style="margin-bottom: 25px;">
                     <span class="section-subtitle">অনলাইন আবেদন</span>
-                    <h3 style="font-size: 26px; color: var(--dpo-blue-dark);">মেম্বারশিপ কার্ডের জন্য আবেদন করুন</h3>
+                    <h3 class="membership-form-title">মেম্বারশিপ কার্ডের জন্য আবেদন করুন</h3>
                     <p style="font-size: 14px; color: var(--text-muted);">নিচের তথ্যগুলো দিন, আমাদের ডেলিভারি টিম কার্ডটি আপনার ঠিকানায় পৌঁছে দেবে।</p>
                 </div>
 

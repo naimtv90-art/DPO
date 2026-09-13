@@ -1769,3 +1769,102 @@ html[data-theme="dark"] .team-contact-btn.wa:hover {
   color: #ffffff !important;
 }
 
+/* Homepage & Shop Dark Mode Comprehensive Overrides */
+body.dark-mode .why-us-section,
+html[data-theme="dark"] .why-us-section {
+  background: #070d18 !important;
+}
+
+body.dark-mode .comparison-box,
+html[data-theme="dark"] .comparison-box {
+  background: #0f192c !important;
+  border-color: #1e2d42 !important;
+}
+
+body.dark-mode .comparison-box h3,
+html[data-theme="dark"] .comparison-box h3 {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .comparison-item,
+html[data-theme="dark"] .comparison-item {
+  border-bottom-color: #1e2d42 !important;
+  color: #f8fafc !important;
+}
+
+body.dark-mode .why-feature-num,
+html[data-theme="dark"] .why-feature-num {
+  background: #1e293b !important;
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .why-feature-item h4,
+html[data-theme="dark"] .why-feature-item h4 {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .features-section,
+html[data-theme="dark"] .features-section {
+  background: #070d18 !important;
+}
+
+body.dark-mode .feature-icon,
+html[data-theme="dark"] .feature-icon {
+  background: #1e293b !important;
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .feature-info h4,
+html[data-theme="dark"] .feature-info h4 {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .hero-card-preview,
+html[data-theme="dark"] .hero-card-preview {
+  background: #0f192c !important;
+  border-color: #1e2d42 !important;
+  color: #f8fafc !important;
+}
+
+body.dark-mode .hero-card-preview h3,
+html[data-theme="dark"] .hero-card-preview h3 {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .hero-preview-details,
+body.dark-mode .hero-card-preview div[style*="background: var(--cream-bg)"],
+html[data-theme="dark"] .hero-card-preview div[style*="background: var(--cream-bg)"] {
+  background: #070d18 !important;
+  border: 1px solid #1e2d42 !important;
+}
+
+body.dark-mode .product-image-wrap,
+html[data-theme="dark"] .product-image-wrap {
+  background: #070d18 !important;
+}
+
+body.dark-mode .special-badge-box,
+html[data-theme="dark"] .special-badge-box {
+  background: rgba(13, 110, 253, 0.15) !important;
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .shop-notice-bar,
+html[data-theme="dark"] .shop-notice-bar {
+  background: #0f192c !important;
+  border-color: #1e2d42 !important;
+  color: #f8fafc !important;
+}
+
+body.dark-mode #shop-product-count,
+html[data-theme="dark"] #shop-product-count {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .gold-highlight-box,
+html[data-theme="dark"] .gold-highlight-box {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #fbbf24 !important;
+}
+
+

@@ -13,12 +13,20 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- Inline Critical CSS -->
+    <style>
+        .sidebar-logo { width: 42px !important; height: 42px !important; max-width: 42px !important; max-height: 42px !important; object-fit: contain; }
+        .product-thumb { width: 48px !important; height: 48px !important; max-width: 48px !important; max-height: 48px !important; object-fit: cover; border-radius: 8px; }
+    </style>
+
     <!-- Admin CSS -->
+    <link rel="stylesheet" href="/admin/css/admin.css">
     <link rel="stylesheet" href="css/admin.css">
-    <link rel="stylesheet" href="../assets/css/animations-3d.css">
+    <link rel="stylesheet" href="/assets/css/animations-3d.css">
 
     <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="/admin/js/app.js"></script>
     <script src="js/app.js"></script>
 </head>
 <body ng-controller="ProductController">
@@ -26,7 +34,7 @@
     <!-- Admin Sidebar -->
     <aside class="admin-sidebar" id="adminSidebar">
         <div class="sidebar-header">
-            <img src="../assets/images/logo.png" alt="DPO Logo" class="sidebar-logo">
+            <img src="/assets/images/logo.png" alt="DPO Logo" class="sidebar-logo">
             <div class="sidebar-title">
                 <h2>Dairy Pure</h2>
                 <span>Admin CMS Panel</span>
@@ -41,13 +49,13 @@
                 </a>
             </li>
             <li>
-                <a href="../shop.html" target="_blank">
+                <a href="/shop.html" target="_blank">
                     <i class="fa-solid fa-shop"></i>
                     <span>শপ পেজ দেখুন</span>
                 </a>
             </li>
             <li>
-                <a href="../index.html" target="_blank">
+                <a href="/index.html" target="_blank">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     <span>মেইন ওয়েবসাইট</span>
                 </a>
@@ -55,7 +63,7 @@
         </ul>
 
         <div class="sidebar-footer">
-            <a href="../index.html">
+            <a href="/index.html">
                 <i class="fa-solid fa-house"></i>
                 <span>ওয়েবসাইটে ফিরে যান</span>
             </a>
@@ -163,7 +171,7 @@
                             <tr ng-repeat="item in products | filter:searchQuery | filter:(selectedCategory === 'all' ? '' : {category: selectedCategory})">
                                 <td>
                                     <div class="product-cell">
-                                        <img ng-src="{{item.image ? '../' + item.image : '../assets/images/milk-1l.jpg'}}" alt="{{item.name}}" class="product-thumb">
+                                        <img ng-src="{{getImageUrl(item.image)}}" alt="{{item.name}}" class="product-thumb">
                                         <div>
                                             <div class="product-info-name">{{item.name}}</div>
                                             <div class="product-info-unit"><i class="fa-solid fa-box"></i> {{item.unit || '১ পিস'}}</div>

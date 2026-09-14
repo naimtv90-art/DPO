@@ -68,19 +68,87 @@ app.controller('ProductController', ['$scope', '$http', function ($scope, $http)
     }, 4000);
   };
 
+  $scope.DEFAULT_PRODUCTS = [
+    {
+      id: "119",
+      name: "খাঁটি কাঁচা তরল দুধ (১ লিটার / ১ কেজি)",
+      price: 100,
+      oldPrice: null,
+      memberPrice: 95,
+      unit: "১ লিটার বোতল",
+      image: "assets/images/milk-1l.jpg",
+      category: "তরল দুধ",
+      description: "ফার্মের তাজা, প্রিমিয়াম কোয়ালিটি কাঁচা দুধ। কোনো ভেজাল বা কৃত্রিম উপাদান ছাড়া সরাসরি গ্রাহকের কাছে পৌঁছানো হয়।",
+      inStock: true,
+      featured: true
+    },
+    {
+      id: "122",
+      name: "খাঁটি কাঁচা তরল দুধ – RAW Milk (৫০০ মি.লি. প্যাকেট)",
+      price: 50,
+      oldPrice: null,
+      memberPrice: 48,
+      unit: "৫০০ মি.লি. প্যাকেট",
+      image: "assets/images/milk-500ml.jpg",
+      category: "তরল দুধ",
+      description: "পূর্ণ ননীযুক্ত গাভীর খাঁটি কাঁচা তরল দুধ। ১০০% প্রাকৃতিক ও বিশুদ্ধ পাউচ প্যাকেট। ডিপ ফ্রিজে (৮° সেলসিয়াসের নিচে) সংরক্ষণযোগ্য।",
+      inStock: true,
+      featured: true
+    },
+    {
+      id: "120",
+      name: "খাঁটি কাঁচা তরল দুধ (৫ লিটার ফ্যামিলি প্যাক)",
+      price: 475,
+      oldPrice: 500,
+      memberPrice: 450,
+      unit: "৫ লিটার জার",
+      image: "assets/images/milk-5l.jpg",
+      category: "ফ্যামিলি প্যাক",
+      description: "পরিবারের জন্য সাশ্রয়ী ৫ লিটার প্যাক। বিশেষ ছাড়সহ তাজা খামারের দুধ।",
+      inStock: true,
+      featured: true
+    },
+    {
+      id: "121",
+      name: "DPO গোল্ড মেম্বারশিপ কার্ড (লাইফটাইম)",
+      price: 50,
+      oldPrice: null,
+      memberPrice: 50,
+      unit: "এককালীন ফি",
+      image: "assets/images/gold-card.jpg",
+      category: "লাইফটাইম মেম্বারশিপ",
+      description: "প্রতি লিটার দুধে ৫ টাকা আজীবন ছাড়, ফ্রি ফিজিক্যাল মেম্বারশিপ কার্ড এবং প্রায়োরিটি হোম ডেলিভারি সুবিধা।",
+      inStock: true,
+      featured: true
+    }
+  ];
+
+  // Helper for safe image path
+  $scope.getImageUrl = function (imagePath) {
+    if (!imagePath) return '/assets/images/milk-1l.jpg';
+    if (imagePath.startsWith('http') || imagePath.startsWith('data:')) return imagePath;
+    if (imagePath.startsWith('/')) return imagePath;
+    return '/' + imagePath;
+  };
+
   // 1. Fetch Products
   $scope.loadProducts = function () {
     $scope.loading = true;
     $http.get('/api/products')
       .then(function (response) {
-        if (response.data && response.data.success) {
-          $scope.products = response.data.data || [];
-          $scope.calculateStats();
+        if (response.data && response.data.success && response.data.data && response.data.data.length > 0) {
+          $scope.products = response.data.data;
+        } else {
+          var saved = localStorage.getItem('dpo_admin_products');
+          $scope.products = saved ? JSON.parse(saved) : $scope.DEFAULT_PRODUCTS;
         }
+        $scope.calculateStats();
       })
       .catch(function (error) {
-        console.error('Error fetching products:', error);
-        $scope.showToast('প্রোডাক্ট লোড করতে ব্যর্থ হয়েছে!', 'error');
+        console.warn('API unavailable, loading local products:', error);
+        var saved = localStorage.getItem('dpo_admin_products');
+        $scope.products = saved ? JSON.parse(saved) : $scope.DEFAULT_PRODUCTS;
+        $scope.calculateStats();
       })
       .finally(function () {
         $scope.loading = false;

@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #ffffff;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 3000;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
@@ -1484,27 +1484,34 @@ textarea.form-control {
     width: 300px;
     max-width: 85vw;
     height: 100vh;
-    background: var(--card-bg, #ffffff);
-    box-shadow: 0 0 35px rgba(0,0,0,0.35);
-    z-index: 2500;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.4);
+    z-index: 3500;
     padding: 30px 20px;
     transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    pointer-events: auto;
   }
   
   .main-navigation.is-active {
     left: 0;
   }
 
+  body.dark-mode .main-navigation,
+  html[data-theme="dark"] .main-navigation {
+    background: #0f172a !important;
+    color: #f8fafc !important;
+  }
+
   .nav-backdrop {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(4px);
-    z-index: 2490;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2500;
     transition: opacity 0.3s ease;
   }
 
@@ -1515,7 +1522,7 @@ textarea.form-control {
   .main-navigation ul.nav-menu {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 10px;
     margin-top: 20px;
     width: 100%;
     list-style: none;
@@ -1530,18 +1537,35 @@ textarea.form-control {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 12px 16px;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-main, #0f172a);
+    padding: 13px 18px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a !important;
     border-radius: 10px;
     transition: var(--transition);
+    border: 1px solid transparent;
+    text-decoration: none;
+  }
+
+  body.dark-mode .main-navigation ul.nav-menu a,
+  html[data-theme="dark"] .main-navigation ul.nav-menu a {
+    color: #f8fafc !important;
   }
 
   .main-navigation ul.nav-menu a:hover,
   .main-navigation ul.nav-menu a.active {
-    background: var(--dpo-blue-light, #e0f2fe);
-    color: var(--dpo-blue-dark, #0277bd);
+    background: #e0f2fe !important;
+    color: #0277bd !important;
+    border-color: #bae6fd !important;
+  }
+
+  body.dark-mode .main-navigation ul.nav-menu a:hover,
+  body.dark-mode .main-navigation ul.nav-menu a.active,
+  html[data-theme="dark"] .main-navigation ul.nav-menu a:hover,
+  html[data-theme="dark"] .main-navigation ul.nav-menu a.active {
+    background: #1e293b !important;
+    color: #38bdf8 !important;
+    border-color: #334155 !important;
   }
   
   .hero-grid,

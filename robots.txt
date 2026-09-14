@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Host & Sitemap
+Host: https://dhaka-enterprise.dpo-bangladesh.org
+Sitemap: https://dhaka-enterprise.dpo-bangladesh.org/sitemap.xml

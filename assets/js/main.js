@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
       unit: '১ লিটার বোতল',
       image: 'assets/images/milk-1l.jpg',
       category: 'তরল দুধ',
-      description: 'প্রতিদিন সকাল ও বিকালের তাজা দোয়ানো খাঁটি কাঁচা তরল গরুর দুধ। ১০০% প্রাকৃতিক ও ভেজালমুক্ত।'
+      description: 'খামারের প্রতিদিনের তাজা দোয়ানো খাঁটি কাঁচা তরল গরুর দুধ। ১০০% প্রাকৃতিক ও ভেজালমুক্ত।'
     },
     '122': {
       id: '122',

@@ -2,7 +2,7 @@
 const initialProducts = [
   {
     "id": "119",
-    "name": "খাঁটি কাঁচা তরল দুধ (১ লিটার / ১ কেজি)",
+    "name": "খাঁটি কাঁচা তরল দুধ (১ লিটার)",
     "price": 100,
     "oldPrice": null,
     "memberPrice": 95,

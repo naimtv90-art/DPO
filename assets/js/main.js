@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let PRODUCTS = {
     '119': {
       id: '119',
-      name: 'খাঁটি কাঁচা তরল দুধ (১ লিটার / ১ কেজি)',
+      name: 'খাঁটি কাঁচা তরল দুধ (১ লিটার)',
       price: 100,
       memberPrice: 95,
       unit: '১ লিটার বোতল',

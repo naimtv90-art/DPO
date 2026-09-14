@@ -1439,54 +1439,87 @@ textarea.form-control {
     font-size: 10px;
   }
 
+  .site-branding {
+    flex-shrink: 0;
+  }
+
   .header-actions {
+    display: flex;
+    align-items: center;
     gap: 8px;
+    flex-shrink: 0;
   }
 
   .header-actions .btn-primary {
-    padding: 8px 12px !important;
-    font-size: 13px !important;
+    display: none !important;
   }
 
   .mobile-nav-toggle {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
-    background: var(--cream-bg);
-    border: 1px solid var(--border-color);
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: var(--cream-bg, #f8fafc);
+    border: 1px solid var(--border-color, #e2e8f0);
     border-radius: 8px;
-    color: var(--dpo-blue-dark);
-    font-size: 18px;
+    color: var(--dpo-blue-dark, #0277bd);
+    font-size: 20px;
     cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transition);
+  }
+
+  .mobile-nav-toggle:hover {
+    background: var(--dpo-blue);
+    color: #ffffff;
+    border-color: var(--dpo-blue);
   }
   
   .main-navigation {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 290px;
+    width: 300px;
     max-width: 85vw;
     height: 100vh;
     background: var(--card-bg, #ffffff);
-    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    box-shadow: 0 0 35px rgba(0,0,0,0.35);
     z-index: 2500;
-    padding: 40px 24px;
+    padding: 30px 20px;
     transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
   
   .main-navigation.is-active {
     left: 0;
   }
+
+  .nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 2490;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-backdrop.is-active {
+    display: block;
+  }
   
   .main-navigation ul.nav-menu {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 8px;
     margin-top: 20px;
     width: 100%;
+    list-style: none;
+    padding: 0;
   }
 
   .main-navigation ul.nav-menu li {
@@ -1494,12 +1527,15 @@ textarea.form-control {
   }
 
   .main-navigation ul.nav-menu a {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%;
-    padding: 10px 14px;
+    padding: 12px 16px;
     font-size: 15px;
     font-weight: 600;
-    border-radius: 8px;
+    color: var(--text-main, #0f172a);
+    border-radius: 10px;
+    transition: var(--transition);
   }
 
   .main-navigation ul.nav-menu a:hover,

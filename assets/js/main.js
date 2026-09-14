@@ -346,24 +346,51 @@ document.addEventListener('DOMContentLoaded', function () {
   const mainNav = document.getElementById('site-navigation');
 
   if (mobileToggle && mainNav) {
+    let navBackdrop = document.getElementById('nav-backdrop');
+    if (!navBackdrop) {
+      navBackdrop = document.createElement('div');
+      navBackdrop.id = 'nav-backdrop';
+      navBackdrop.className = 'nav-backdrop';
+      document.body.appendChild(navBackdrop);
+    }
+
+    function openNav() {
+      mainNav.classList.add('is-active');
+      if (navBackdrop) navBackdrop.classList.add('is-active');
+      const icon = mobileToggle.querySelector('i');
+      if (icon) icon.className = 'fa-solid fa-xmark';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeNav() {
+      mainNav.classList.remove('is-active');
+      if (navBackdrop) navBackdrop.classList.remove('is-active');
+      const icon = mobileToggle.querySelector('i');
+      if (icon) icon.className = 'fa-solid fa-bars';
+      document.body.style.overflow = '';
+    }
+
     mobileToggle.addEventListener('click', function (e) {
       e.stopPropagation();
-      mainNav.classList.toggle('is-active');
-      const icon = mobileToggle.querySelector('i');
-      if (icon) {
-        if (mainNav.classList.contains('is-active')) {
-          icon.className = 'fa-solid fa-xmark';
-        } else {
-          icon.className = 'fa-solid fa-bars';
-        }
+      if (mainNav.classList.contains('is-active')) {
+        closeNav();
+      } else {
+        openNav();
       }
     });
 
-    document.addEventListener('click', function (e) {
-      if (!mainNav.contains(e.target) && !mobileToggle.contains(e.target)) {
-        mainNav.classList.remove('is-active');
-        const icon = mobileToggle.querySelector('i');
-        if (icon) icon.className = 'fa-solid fa-bars';
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', closeNav);
+    }
+
+    // Close mobile nav when clicking any link inside
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeNav);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mainNav.classList.contains('is-active')) {
+        closeNav();
       }
     });
   }

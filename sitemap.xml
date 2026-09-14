@@ -28,6 +28,36 @@
     </image:image>
   </url>
   <url>
+    <loc>https://dhaka-enterprise.dpo-bangladesh.org/khati-gorur-dudh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://dhaka-enterprise.dpo-bangladesh.org/gorur-dudh-home-delivery</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://dhaka-enterprise.dpo-bangladesh.org/mirpur-12-milk-delivery</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://dhaka-enterprise.dpo-bangladesh.org/milk-price</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://dhaka-enterprise.dpo-bangladesh.org/pure-milk-benefits</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://dhaka-enterprise.dpo-bangladesh.org/about</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>

@@ -6,21 +6,54 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ],
   "rewrites": [
-    { "source": "/admin", "destination": "/admin/index.html" },
-    { "source": "/admin/", "destination": "/admin/index.html" },
-    { "source": "/api/products", "destination": "/api/products.js" }
+    {
+      "source": "/cow-milk-home-delivery-mirpur-12",
+      "destination": "/mirpur-12-milk-delivery.html"
+    },
+    {
+      "source": "/cow-milk-home-delivery-pallabi",
+      "destination": "/cow-milk-home-delivery-pallabi.html"
+    },
+    {
+      "source": "/pure-cow-milk-mirpur",
+      "destination": "/pure-cow-milk-mirpur.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/api/products",
+      "destination": "/api/products.js"
+    }
   ]
 }

@@ -347,8 +347,36 @@
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/animations-3d.js"></script>
+    <!-- Order Success Modal -->
+    <div id="order-success-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 9999; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px);">
+        <div style="background: #ffffff; border-radius: 16px; max-width: 500px; width: 100%; padding: 35px 25px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.25); animation: zoomIn 0.3s ease;">
+            <div style="width: 70px; height: 70px; background: #e8f5e9; color: var(--dpo-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px; margin: 0 auto 20px;">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2 style="color: var(--dpo-blue-dark); font-size: 22px; margin-bottom: 8px;">অর্ডার সফলভাবে সম্পন্ন হয়েছে!</h2>
+            <p style="color: #64748b; font-size: 14px; margin-bottom: 15px;">
+                অর্ডারটির বিস্তারিত তথ্য আপনার অ্যাডমিন ইমেইলে (<strong style="color: var(--dpo-blue);">metamorphosisnaim@gmail.com</strong>) পাঠানো হয়েছে।
+            </p>
+            <div style="background: #f8fafc; border: 1px dashed var(--border-color); border-radius: 10px; padding: 15px; margin-bottom: 25px; text-align: left; font-size: 14px;">
+                <div style="margin-bottom: 6px;"><strong>অর্ডার আইডি:</strong> <span id="modal-order-id" style="color: var(--dpo-blue); font-weight: 700;"></span></div>
+                <div style="margin-bottom: 6px;"><strong>কাস্টমার:</strong> <span id="modal-cust-name"></span> (<span id="modal-cust-phone"></span>)</div>
+                <div style="margin-bottom: 6px;"><strong>ঠিকানা:</strong> <span id="modal-cust-address"></span></div>
+                <div style="margin-bottom: 6px;"><strong>পেমেন্ট মেথড:</strong> <span id="modal-cust-payment"></span></div>
+                <div><strong>সর্বমোট মূল্য:</strong> <strong id="modal-order-total" style="color: var(--dpo-green); font-size: 16px;"></strong></div>
+            </div>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a id="modal-whatsapp-btn" href="#" target="_blank" class="btn btn-whatsapp" style="flex: 1; min-width: 180px; padding: 12px; font-size: 14px;">
+                    <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে নিশ্চিত করুন
+                </a>
+                <a href="index.html" class="btn btn-primary" style="flex: 1; min-width: 140px; padding: 12px; font-size: 14px;">
+                    <i class="fa-solid fa-house"></i> হোম পেজে যান
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Checkout Page Specific Logic
+        // Checkout Page Specific Logic & Email Submission
         document.addEventListener('DOMContentLoaded', function() {
             function renderCheckout() {
                 const list = document.getElementById('checkout-items-list');
@@ -365,7 +393,7 @@
                 if (!list) return;
 
                 if (cart.length === 0) {
-                    list.innerHTML = `<p style="color: var(--text-muted); font-size: 14px;">কোনো পণ্য কার্টে নেই। <a href="shop.html" style="color: var(--dpo-blue); font-weight: 600;">শপ থেকে পণ্য যোগ করুন</a></p>`;
+                    list.innerHTML = `<p style="color: var(--text-muted); font-size: 14px; padding: 15px 0;">কোনো পণ্য কার্টে নেই। <a href="shop.html" style="color: var(--dpo-blue); font-weight: 600;">শপ থেকে পণ্য যোগ করুন</a></p>`;
                     if (subtotalEl) subtotalEl.textContent = '৳ 0';
                     if (grandTotalEl) grandTotalEl.textContent = '৳ 0';
                     return;
@@ -376,7 +404,7 @@
                     const itemTotal = item.price * item.quantity;
                     total += itemTotal;
                     return `
-                        <div class="checkout-item-row">
+                        <div class="checkout-item-row" style="margin-bottom: 8px;">
                             <div>
                                 <strong class="checkout-item-title">${item.name}</strong>
                                 <div style="font-size: 12px; color: var(--text-muted);">পরিমাণ: ${item.quantity} × ৳${item.price}</div>
@@ -392,11 +420,12 @@
 
             renderCheckout();
 
-            // Handle checkout form submit
+            // Handle checkout form submit with Email Dispatch
             const form = document.getElementById('checkout-form');
             if (form) {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', async function(e) {
                     e.preventDefault();
+                    
                     let cart = [];
                     try {
                         cart = JSON.parse(localStorage.getItem('dpo_cart') || '[]');
@@ -405,41 +434,100 @@
                     }
 
                     if (cart.length === 0) {
-                        alert('অনুগ্রহ করে প্রথমে কার্টে পণ্য যোগ করুন।');
+                        alert('আপনার কার্ট খালি! অনুগ্রহ করে প্রথমে শপ থেকে পণ্য যোগ করুন।');
                         window.location.href = 'shop.html';
                         return;
                     }
 
-                    const name = document.getElementById('cust-name').value;
-                    const phone = document.getElementById('cust-phone').value;
-                    const address = document.getElementById('cust-address').value;
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> অর্ডার প্রসেস হচ্ছে ও ইমেইল পাঠানো হচ্ছে...';
+                    }
+
+                    const name = document.getElementById('cust-name').value.trim();
+                    const phone = document.getElementById('cust-phone').value.trim();
+                    const address = document.getElementById('cust-address').value.trim();
                     const time = document.getElementById('cust-time').value;
-                    const note = document.getElementById('cust-note').value;
-                    const payment = document.querySelector('input[name="payment_method"]:checked')?.value || 'Cash on Delivery';
+                    const note = document.getElementById('cust-note').value.trim();
+                    const payment = document.querySelector('input[name="payment_method"]:checked')?.value || 'Cash On Delivery';
 
-                    let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                    const orderId = 'DPO-' + Date.now().toString().slice(-6);
 
-                    let msg = `*🥛 নতুন ডেইরি অর্ডার (Dairy Pure & Organic)*\n\n`;
-                    msg += `👤 কাস্টমার: ${name}\n`;
-                    msg += `📞 ফোন: ${phone}\n`;
-                    msg += `📍 ঠিকানা: ${address}\n`;
-                    msg += `⏰ ডেলিভারি সময়: ${time}\n`;
-                    msg += `💳 পেমেন্ট মাধ্যম: ${payment}\n`;
-                    if (note) msg += `📝 নোট: ${note}\n`;
-                    msg += `\n📦 *অর্ডারকৃত পণ্যসমূহ:*\n`;
-                    cart.forEach((it, idx) => {
-                        msg += `${idx + 1}. ${it.name} (${it.quantity} টি) - ৳${it.price * it.quantity}\n`;
-                    });
-                    msg += `\n💵 *সর্বমোট বিল: ৳${total}*\n`;
+                    // Format items list text
+                    let itemsFormatted = cart.map((it, idx) => `${idx + 1}. ${it.name} | পরিমাণ: ${it.quantity} | মূল্য: ৳${it.price * it.quantity}`).join('\n');
 
-                    const waUrl = `https://wa.me/8801775002340?text=${encodeURIComponent(msg)}`;
-                    
-                    // Clear cart
+                    // 1. Prepare Email Payload for metamorphosisnaim@gmail.com
+                    const emailPayload = {
+                        _subject: `🥛 নতুন অর্ডার: ${name} (৳${total}) - [${orderId}]`,
+                        _template: 'table',
+                        _captcha: 'false',
+                        'অর্ডার আইডি (Order ID)': orderId,
+                        'গ্রাহকের নাম (Customer Name)': name,
+                        'মোবাইল নম্বর (Phone)': phone,
+                        'ডেলিভারি ঠিকানা (Address)': address,
+                        'ডেলিভারি সময় (Time Slot)': time,
+                        'পেমেন্ট মেথড (Payment)': payment,
+                        'বিশেষ নোট (Note)': note || 'কোনো নোট দেওয়া হয়নি',
+                        'অর্ডারকৃত পণ্যসমূহ (Items)': itemsFormatted,
+                        'সর্বমোট বিল (Total Amount)': `৳ ${total}`,
+                        'তারিখ ও সময় (Date Time)': new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })
+                    };
+
+                    try {
+                        // Send Email via FormSubmit AJAX to metamorphosisnaim@gmail.com
+                        await fetch('https://formsubmit.co/ajax/metamorphosisnaim@gmail.com', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(emailPayload)
+                        });
+                    } catch (err) {
+                        console.warn('Email dispatch warning:', err);
+                    }
+
+                    // 2. Prepare WhatsApp message for customer convenience
+                    let waMsg = `*🥛 নতুন ডেইরি অর্ডার (${orderId})*\n\n`;
+                    waMsg += `👤 কাস্টমার: ${name}\n`;
+                    waMsg += `📞 ফোন: ${phone}\n`;
+                    waMsg += `📍 ঠিকানা: ${address}\n`;
+                    waMsg += `⏰ ডেলিভারি সময়: ${time}\n`;
+                    waMsg += `💳 পেমেন্ট মাধ্যম: ${payment}\n`;
+                    if (note) waMsg += `📝 নোট: ${note}\n`;
+                    waMsg += `\n📦 *পণ্যসমূহ:*\n${itemsFormatted}\n`;
+                    waMsg += `\n💵 *সর্বমোট বিল: ৳${total}*`;
+
+                    const waUrl = `https://wa.me/8801775002340?text=${encodeURIComponent(waMsg)}`;
+
+                    // Clear Cart
                     localStorage.removeItem('dpo_cart');
-                    
-                    alert('আপনার অর্ডারটি সফলভাবে গৃহীত হয়েছে! আপনাকে হোয়াটসঅ্যাপে পাঠানো হচ্ছে...');
-                    window.open(waUrl, '_blank');
-                    window.location.href = 'index.html';
+                    if (window.updateCartCount) window.updateCartCount();
+
+                    // 3. Show Success Modal
+                    document.getElementById('modal-order-id').textContent = orderId;
+                    document.getElementById('modal-cust-name').textContent = name;
+                    document.getElementById('modal-cust-phone').textContent = phone;
+                    document.getElementById('modal-cust-address').textContent = address;
+                    document.getElementById('modal-cust-payment').textContent = payment;
+                    document.getElementById('modal-order-total').textContent = `৳ ${total}`;
+                    document.getElementById('modal-whatsapp-btn').href = waUrl;
+
+                    const modal = document.getElementById('order-success-modal');
+                    if (modal) {
+                        modal.style.display = 'flex';
+                    } else {
+                        alert(`ধন্যবাদ ${name}! আপনার অর্ডার (${orderId}) সফলভাবে সম্পন্ন হয়েছে এবং ইমেইলে পাঠানো হয়েছে।`);
+                        window.location.href = 'index.html';
+                    }
+
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+                    }
                 });
             }
         });

@@ -348,27 +348,42 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/animations-3d.js"></script>
     <!-- Order Success Modal -->
-    <div id="order-success-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 9999; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px);">
-        <div style="background: #ffffff; border-radius: 16px; max-width: 500px; width: 100%; padding: 35px 25px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.25); animation: zoomIn 0.3s ease;">
-            <div style="width: 70px; height: 70px; background: #e8f5e9; color: var(--dpo-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px; margin: 0 auto 20px;">
+    <div id="order-success-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 99999; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(6px);">
+        <div class="order-modal-card" style="background: var(--bg-card, #ffffff); color: var(--text-main, #0f172a); border: 1px solid var(--border-color, #e2e8f0); border-radius: 20px; max-width: 490px; width: 100%; padding: 35px 24px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4); animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+            <div style="width: 72px; height: 72px; background: rgba(46, 125, 50, 0.15); color: var(--dpo-green, #16a34a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 38px; margin: 0 auto 18px;">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
-            <h2 style="color: var(--dpo-blue-dark); font-size: 22px; margin-bottom: 8px;">অর্ডার সফলভাবে সম্পন্ন হয়েছে!</h2>
-            <p style="color: #64748b; font-size: 14px; margin-bottom: 15px;">
-                অর্ডারটির বিস্তারিত তথ্য আপনার অ্যাডমিন ইমেইলে (<strong style="color: var(--dpo-blue);">metamorphosisnaim@gmail.com</strong>) পাঠানো হয়েছে।
+            <h2 style="color: var(--dpo-blue-dark, #0277bd); font-size: 22px; font-weight: 800; margin-bottom: 8px;">অর্ডার সফলভাবে সম্পন্ন হয়েছে!</h2>
+            <p style="color: var(--text-muted, #64748b); font-size: 14px; margin-bottom: 20px; line-height: 1.6;">
+                অর্ডারটির বিস্তারিত তথ্য আপনার ইমেইলে (<strong style="color: var(--dpo-blue, #0284c7);">metamorphosisnaim@gmail.com</strong>) পাঠানো হয়েছে।
             </p>
-            <div style="background: #f8fafc; border: 1px dashed var(--border-color); border-radius: 10px; padding: 15px; margin-bottom: 25px; text-align: left; font-size: 14px;">
-                <div style="margin-bottom: 6px;"><strong>অর্ডার আইডি:</strong> <span id="modal-order-id" style="color: var(--dpo-blue); font-weight: 700;"></span></div>
-                <div style="margin-bottom: 6px;"><strong>কাস্টমার:</strong> <span id="modal-cust-name"></span> (<span id="modal-cust-phone"></span>)</div>
-                <div style="margin-bottom: 6px;"><strong>ঠিকানা:</strong> <span id="modal-cust-address"></span></div>
-                <div style="margin-bottom: 6px;"><strong>পেমেন্ট মেথড:</strong> <span id="modal-cust-payment"></span></div>
-                <div><strong>সর্বমোট মূল্য:</strong> <strong id="modal-order-total" style="color: var(--dpo-green); font-size: 16px;"></strong></div>
+            <div style="background: rgba(15, 23, 42, 0.05); border: 1px dashed var(--border-color, #cbd5e1); border-radius: 12px; padding: 18px; margin-bottom: 25px; text-align: left; font-size: 14px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color, #e2e8f0); padding-bottom: 8px;">
+                    <span style="color: var(--text-muted, #64748b); font-weight: 500;">অর্ডার আইডি:</span> 
+                    <strong id="modal-order-id" style="color: var(--dpo-blue, #0277bd); font-weight: 700; font-size: 15px;"></strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color, #e2e8f0); padding-bottom: 8px;">
+                    <span style="color: var(--text-muted, #64748b); font-weight: 500;">কাস্টমার:</span> 
+                    <strong style="color: var(--text-main, #0f172a);"><span id="modal-cust-name"></span> (<span id="modal-cust-phone"></span>)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--border-color, #e2e8f0); padding-bottom: 8px;">
+                    <span style="color: var(--text-muted, #64748b); font-weight: 500;">ডেলিভারি ঠিকানা:</span> 
+                    <strong style="color: var(--text-main, #0f172a); text-align: right; max-width: 60%; word-break: break-word;" id="modal-cust-address"></strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color, #e2e8f0); padding-bottom: 8px;">
+                    <span style="color: var(--text-muted, #64748b); font-weight: 500;">পেমেন্ট মাধ্যম:</span> 
+                    <strong style="color: var(--text-main, #0f172a);" id="modal-cust-payment"></strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 4px;">
+                    <span style="color: var(--text-main, #0f172a); font-weight: 700; font-size: 15px;">সর্বমোট মূল্য:</span> 
+                    <strong id="modal-order-total" style="color: var(--dpo-green, #16a34a); font-size: 18px; font-weight: 800;"></strong>
+                </div>
             </div>
             <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                <a id="modal-whatsapp-btn" href="#" target="_blank" class="btn btn-whatsapp" style="flex: 1; min-width: 180px; padding: 12px; font-size: 14px;">
-                    <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে নিশ্চিত করুন
+                <a id="modal-whatsapp-btn" href="#" target="_blank" class="btn btn-whatsapp" style="flex: 1; min-width: 170px; padding: 12px 16px; font-size: 14px; border-radius: 10px;">
+                    <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে নিশ্চিত
                 </a>
-                <a href="index.html" class="btn btn-primary" style="flex: 1; min-width: 140px; padding: 12px; font-size: 14px;">
+                <a href="index.html" class="btn btn-primary" style="flex: 1; min-width: 130px; padding: 12px 16px; font-size: 14px; border-radius: 10px;">
                     <i class="fa-solid fa-house"></i> হোম পেজে যান
                 </a>
             </div>

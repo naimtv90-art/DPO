@@ -32,6 +32,70 @@
   ],
   "rewrites": [
     {
+      "source": "/mirpur-12",
+      "destination": "/mirpur-12-milk-delivery.html"
+    },
+    {
+      "source": "/mirpur-12/",
+      "destination": "/mirpur-12-milk-delivery.html"
+    },
+    {
+      "source": "/kazipara",
+      "destination": "/kazipara-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/kazipara/",
+      "destination": "/kazipara-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/shewrapara",
+      "destination": "/shewrapara-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/shewrapara/",
+      "destination": "/shewrapara-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/kallyanpur",
+      "destination": "/kallyanpur-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/kallyanpur/",
+      "destination": "/kallyanpur-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/rupnagar",
+      "destination": "/rupnagar-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/rupnagar/",
+      "destination": "/rupnagar-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/eastern-housing",
+      "destination": "/eastern-housing-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/eastern-housing/",
+      "destination": "/eastern-housing-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/shopnonagor-abashik",
+      "destination": "/swapnonagar-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/shopnonagor-abashik/",
+      "destination": "/swapnonagar-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/swapnonagar",
+      "destination": "/swapnonagar-cow-milk-home-delivery.html"
+    },
+    {
+      "source": "/swapnonagar/",
+      "destination": "/swapnonagar-cow-milk-home-delivery.html"
+    },
+    {
       "source": "/mirpur-cow-milk-home-delivery",
       "destination": "/mirpur-cow-milk-home-delivery.html"
     },

@@ -793,9 +793,31 @@ function buildAll() {
     }
     fs.writeFileSync(path.join(dirPath, 'index.html'), html, 'utf8');
     console.log(`✓ Generated /${loc.slug}/index.html`);
+
+    // Also support short alias URLs (e.g. /kazipara, /shewrapara, etc.)
+    const shortAliasMap = {
+      'mirpur-cow-milk-home-delivery': ['mirpur'],
+      'kazipara-cow-milk-home-delivery': ['kazipara'],
+      'shewrapara-cow-milk-home-delivery': ['shewrapara'],
+      'kallyanpur-cow-milk-home-delivery': ['kallyanpur'],
+      'rupnagar-cow-milk-home-delivery': ['rupnagar'],
+      'eastern-housing-cow-milk-home-delivery': ['eastern-housing'],
+      'swapnonagar-cow-milk-home-delivery': ['swapnonagar', 'shopnonagor-abashik']
+    };
+
+    const aliases = shortAliasMap[loc.slug] || [];
+    aliases.forEach(alias => {
+      const aliasDir = path.join(rootDir, alias);
+      if (!fs.existsSync(aliasDir)) {
+        fs.mkdirSync(aliasDir, { recursive: true });
+      }
+      fs.writeFileSync(path.join(aliasDir, 'index.html'), html, 'utf8');
+      console.log(`✓ Generated short alias /${alias}/index.html`);
+    });
   });
 
-  console.log('All 7 location pages successfully compiled!');
+  console.log('All location pages and alias routes successfully compiled!');
 }
 
 buildAll();
+

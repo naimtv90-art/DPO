@@ -231,7 +231,7 @@ function renderPage(loc) {
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-left">
-                <span><i class="fa-solid fa-bullhorn"></i> 🚚 ${loc.nameBn}-এ ২৪/৭ দিন-রাত যেকোনো সময়ে সরাসরি নিজস্ব খামার থেকে খাঁটি দুধ হোম ডেলিভারি!</span>
+                <span><i class="fa-solid fa-bullhorn"></i> 🚚 ${loc.nameBn}-এ ডেলিভারি: ২৪/৭ সার্বক্ষণিক হোম ডেলিভারি — দিন-রাত যেকোনো সময় সরাসরি খামারের খাঁটি দুধ!</span>
             </div>
             <div class="top-bar-right">
                 <a href="tel:${business.phone1_raw}"><i class="fa-solid fa-phone"></i> ${business.phone1}</a>
@@ -400,7 +400,7 @@ function renderPage(loc) {
                             <div class="route-step-icon"><i class="fa-solid fa-cow"></i></div>
                             <div class="route-step-info">
                                 <h4>১. নিজস্ব ডেইরি ফার্ম</h4>
-                                <span>সকাল ও বিকাল তাজা দুধ সংগ্রহ</span>
+                                <span>২৪/৭ তাজা দুধ সংগ্রহ ও সরবরাহ</span>
                             </div>
                         </div>
                         <div class="route-step active">
@@ -442,7 +442,7 @@ function renderPage(loc) {
                 <div class="why-card">
                     <div class="why-icon"><i class="fa-solid fa-sun"></i></div>
                     <h3 class="why-title">প্রতিদিন তাজা দোয়ানো</h3>
-                    <p class="why-desc">সকাল ও বিকাল উভয় সময়ে নিজস্ব ফার্মের গাভী থেকে টাটকা দুধ সংগ্রহ করে দ্রুততম সময়ে সরবরাহ করা হয়।</p>
+                    <p class="why-desc">দিন-রাত ২৪/৭ সার্বক্ষণিক নিজস্ব ফার্মের গাভী থেকে টাটকা দুধ সংগ্রহ করে আপনার সুবিধাজনক সময়ে সরবরাহ করা হয়।</p>
                 </div>
 
                 <div class="why-card">
@@ -478,7 +478,7 @@ function renderPage(loc) {
             <div class="section-header-centered">
                 <span class="section-tag"><i class="fa-solid fa-list-check"></i> ৩টি সহজ ধাপ</span>
                 <h2 class="section-heading-main">${loc.nameBn}-এ ডেলিভারি কীভাবে কাজ করে?</h2>
-                <p class="section-subtitle-main">ঝামেলামুক্ত উপায়ে প্রতিদিন সকালে বা বিকালে আপনার বাসায় তাজা দুধ পৌঁছে যাবে।</p>
+                <p class="section-subtitle-main">ঝামেলামুক্ত উপায়ে ২৪/৭ দিন-রাত যেকোনো সময়ে আপনার বাসায় তাজা দুধ পৌঁছে যাবে।</p>
             </div>
 
             <div class="how-steps-grid">
@@ -715,7 +715,7 @@ function renderPage(loc) {
                         <div><i class="fa-solid fa-phone" style="color: var(--dpo-green); margin-right: 8px;"></i> <a href="tel:${business.phone1_raw}">${business.phone1}</a></div>
                         <div><i class="fa-solid fa-phone" style="color: var(--dpo-green); margin-right: 8px;"></i> <a href="tel:${business.phone2_raw}">${business.phone2}</a></div>
                         <div><i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 8px;"></i> <a href="https://wa.me/${business.whatsapp_raw}" target="_blank">${business.whatsapp}</a></div>
-                        <div><i class="fa-solid fa-clock" style="color: var(--dpo-sun); margin-right: 8px;"></i> ডেলিভারি: ${business.deliveryTime}</div>
+                        <div><i class="fa-solid fa-clock" style="color: var(--dpo-sun); margin-right: 8px;"></i> ডেলিভারি: ২৪/৭ সার্বক্ষণিক হোম ডেলিভারি</div>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.dairypureorganic.com/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -13,13 +13,13 @@
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/shop</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/membership</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -27,57 +27,131 @@
       <image:title>DPO গোল্ড মেম্বারশিপ কার্ড</image:title>
     </image:image>
   </url>
+
+  <!-- Local Delivery Area Landing Pages -->
+  <url>
+    <loc>https://www.dairypureorganic.com/mirpur-cow-milk-home-delivery</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.dairypureorganic.com/assets/images/milk-1l.jpg</image:loc>
+      <image:title>মিরপুরে খাঁটি গরুর দুধ হোম ডেলিভারি</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.dairypureorganic.com/kazipara-cow-milk-home-delivery</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.dairypureorganic.com/assets/images/milk-1l.jpg</image:loc>
+      <image:title>কাজীপাড়ায় খাঁটি গরুর দুধ হোম ডেলিভারি</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.dairypureorganic.com/shewrapara-cow-milk-home-delivery</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.dairypureorganic.com/assets/images/milk-1l.jpg</image:loc>
+      <image:title>শেওড়াপাড়ায় খাঁটি গরুর দুধ হোম ডেলিভারি</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.dairypureorganic.com/kallyanpur-cow-milk-home-delivery</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.dairypureorganic.com/assets/images/milk-1l.jpg</image:loc>
+      <image:title>কল্যাণপুরে খাঁটি গরুর দুধ হোম ডেলিভারি</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.dairypureorganic.com/rupnagar-cow-milk-home-delivery</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.dairypureorganic.com/assets/images/milk-1l.jpg</image:loc>
+      <image:title>রূপনগরে খাঁটি গরুর দুধ হোম ডেলিভারি</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.dairypureorganic.com/eastern-housing-cow-milk-home-delivery</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.dairypureorganic.com/assets/images/milk-1l.jpg</image:loc>
+      <image:title>ইস্টার্ন হাউজিংয়ে খাঁটি গরুর দুধ হোম ডেলিভারি</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.dairypureorganic.com/swapnonagar-cow-milk-home-delivery</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.dairypureorganic.com/assets/images/milk-1l.jpg</image:loc>
+      <image:title>স্বপ্ননগরে খাঁটি গরুর দুধ হোম ডেলিভারি</image:title>
+    </image:image>
+  </url>
+
+  <!-- Legacy & Info Landing Pages -->
   <url>
     <loc>https://www.dairypureorganic.com/mirpur-12-milk-delivery</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/cow-milk-home-delivery-pallabi</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/pure-cow-milk-mirpur</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/khati-gorur-dudh</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/gorur-dudh-home-delivery</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/milk-price</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/pure-milk-benefits</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/about</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.dairypureorganic.com/contact</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

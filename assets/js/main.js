@@ -100,8 +100,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       return `
         <div class="product-card" ${cardBorder}>
-            <div class="product-image-wrap" ${isGold ? 'style="background: #1e1b18;"' : ''}>
+            <div class="product-image-wrap ${isGold ? 'gold-theme-wrap' : ''}" data-product-id="${prod.id}" ${isGold ? 'style="background: #1e1b18;"' : ''} title="সম্পূর্ণ ছবি দেখতে ক্লিক করুন">
                 <span class="product-badge" ${badgeStyle}>${prod.featured ? 'স্পেশাল প্যাকেজ' : (prod.category || 'ফার্ম ফ্রেশ')}</span>
+                <button class="product-quickview-btn" data-quickview="${prod.id}" title="সম্পূর্ণ ছবি ও বিস্তারিত দেখুন" aria-label="ফুল ভিউ দেখুন">
+                    <i class="fa-solid fa-expand"></i> <span>ফুল ভিউ</span>
+                </button>
                 <img src="${imgSrc}" alt="${prod.name}" loading="lazy">
             </div>
             <div class="product-body">
@@ -433,6 +436,343 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // --- Modern Product Full Image Lightbox / Modal Engine ---
+  let activeModalProductId = null;
+
+  function ensureProductModalDOM() {
+    let backdrop = document.getElementById('dpo-product-modal-backdrop');
+    if (backdrop) return backdrop;
+
+    backdrop = document.createElement('div');
+    backdrop.id = 'dpo-product-modal-backdrop';
+    backdrop.className = 'dpo-product-modal-backdrop';
+    backdrop.innerHTML = `
+      <div class="dpo-product-modal" id="dpo-product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
+        <button class="dpo-modal-close-btn" id="dpo-modal-close-btn" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="dpo-modal-layout">
+          <!-- Visual Image Column -->
+          <div class="dpo-modal-visual" id="dpo-modal-visual">
+            <span class="dpo-modal-badge" id="modal-product-badge">ফার্ম ফ্রেশ</span>
+            <button class="dpo-zoom-toggle-btn" id="dpo-zoom-toggle-btn" title="জুম ইন / আউট" aria-label="Toggle zoom">
+              <i class="fa-solid fa-magnifying-glass-plus"></i> <span id="dpo-zoom-label">জুম করুন</span>
+            </button>
+            <div class="dpo-modal-img-container" id="dpo-modal-img-container" title="জুম করতে ক্লিক করুন">
+              <img src="" alt="" id="modal-product-image" class="dpo-modal-img">
+            </div>
+            
+            <div class="dpo-modal-nav-arrows">
+              <button class="dpo-modal-nav-btn" id="modal-nav-prev" title="পূর্ববর্তী প্যাকেজ" aria-label="Previous product">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <span class="dpo-modal-counter" id="modal-product-counter">১ / ৪</span>
+              <button class="dpo-modal-nav-btn" id="modal-nav-next" title="পরবর্তী প্যাকেজ" aria-label="Next product">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Details Column -->
+          <div class="dpo-modal-details">
+            <div class="dpo-modal-cat" id="modal-product-cat">তরল দুধ</div>
+            <h2 class="dpo-modal-title" id="modal-product-title">খাঁটি কাঁচা তরল দুধ (১ লিটার)</h2>
+            
+            <div class="dpo-modal-rating-row">
+              <div class="dpo-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="dpo-rating-score">৫.০ (১০০% পরীক্ষিত খাঁটি দুধ)</span>
+            </div>
+            
+            <div class="dpo-modal-purity-badges">
+              <span class="purity-pill"><i class="fa-solid fa-shield-halved"></i> ১০০% ভেজালমুক্ত</span>
+              <span class="purity-pill"><i class="fa-solid fa-leaf"></i> সম্পূর্ণ প্রাকৃতিক</span>
+              <span class="purity-pill"><i class="fa-solid fa-truck-fast"></i> ২৪/৭ হোম ডেলিভারি</span>
+            </div>
+            
+            <p class="dpo-modal-desc" id="modal-product-desc">প্রতিদিন সকাল ও বিকালের তাজা দোয়ানো খাঁটি কাঁচা তরল গরুর দুধ। ১০০% প্রাকৃতিক ও ভেজালমুক্ত।</p>
+            
+            <div class="dpo-modal-special-box" id="modal-special-box">
+              <i class="fa-solid fa-tag"></i>
+              <span id="modal-special-text">মেম্বারশিপ স্পেশাল: ৳ ৯৫ (৫ টাকা ছাড়)</span>
+            </div>
+            
+            <div class="dpo-modal-pricing">
+              <div class="dpo-price-main">
+                <span class="dpo-price-current" id="modal-product-price">৳ 100</span>
+                <span class="dpo-price-old" id="modal-product-oldprice"></span>
+                <span class="dpo-price-unit" id="modal-product-unit">/ ১ লিটার বোতল</span>
+              </div>
+              <span class="dpo-stock-badge in-stock"><i class="fa-solid fa-circle-check"></i> প্রস্তুত আছে</span>
+            </div>
+            
+            <div class="dpo-modal-purchase-row">
+              <div class="dpo-modal-qty">
+                <button class="qty-btn" id="modal-qty-minus" aria-label="Decrease quantity">-</button>
+                <input type="number" id="modal-qty-input" value="1" min="1" max="99" readonly>
+                <button class="qty-btn" id="modal-qty-plus" aria-label="Increase quantity">+</button>
+              </div>
+              
+              <button class="btn btn-primary dpo-modal-add-cart-btn" id="modal-add-to-cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i> কার্টে যোগ করুন
+              </button>
+            </div>
+            
+            <div class="dpo-modal-wa-row">
+              <a href="#" class="btn btn-whatsapp dpo-modal-wa-btn" id="modal-whatsapp-btn" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে সরাসরি অর্ডার করুন
+              </a>
+            </div>
+            
+            <div class="dpo-modal-footer-note">
+              <i class="fa-solid fa-location-dot"></i> মিরপুর ১২ ও সমগ্র ঢাকায় সরাসরি নিজস্ব খামার থেকে হোম ডেলিভারি!
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(backdrop);
+    bindProductModalEvents(backdrop);
+    return backdrop;
+  }
+
+  function bindProductModalEvents(backdrop) {
+    const closeBtn = backdrop.querySelector('#dpo-modal-close-btn');
+    const zoomBtn = backdrop.querySelector('#dpo-zoom-toggle-btn');
+    const imgContainer = backdrop.querySelector('#dpo-modal-img-container');
+    const prevBtn = backdrop.querySelector('#modal-nav-prev');
+    const nextBtn = backdrop.querySelector('#modal-nav-next');
+    const qtyMinus = backdrop.querySelector('#modal-qty-minus');
+    const qtyPlus = backdrop.querySelector('#modal-qty-plus');
+    const qtyInput = backdrop.querySelector('#modal-qty-input');
+    const addCartBtn = backdrop.querySelector('#modal-add-to-cart-btn');
+
+    closeBtn.addEventListener('click', closeProductModal);
+    
+    backdrop.addEventListener('click', function (e) {
+      if (e.target === backdrop) {
+        closeProductModal();
+      }
+    });
+
+    function toggleZoom() {
+      const isZoomed = imgContainer.classList.toggle('zoomed');
+      const zoomLabel = backdrop.querySelector('#dpo-zoom-label');
+      const zoomIcon = zoomBtn.querySelector('i');
+      if (isZoomed) {
+        zoomLabel.textContent = 'রিসেট করুন';
+        zoomIcon.className = 'fa-solid fa-magnifying-glass-minus';
+      } else {
+        zoomLabel.textContent = 'জুম করুন';
+        zoomIcon.className = 'fa-solid fa-magnifying-glass-plus';
+      }
+    }
+
+    zoomBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleZoom();
+    });
+
+    imgContainer.addEventListener('click', toggleZoom);
+
+    prevBtn.addEventListener('click', function () {
+      navigateModalProducts(-1);
+    });
+
+    nextBtn.addEventListener('click', function () {
+      navigateModalProducts(1);
+    });
+
+    qtyMinus.addEventListener('click', function () {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val > 1) qtyInput.value = val - 1;
+    });
+
+    qtyPlus.addEventListener('click', function () {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val < 99) qtyInput.value = val + 1;
+    });
+
+    addCartBtn.addEventListener('click', function () {
+      if (activeModalProductId) {
+        const qty = parseInt(qtyInput.value, 10) || 1;
+        addToCart(activeModalProductId, qty);
+        closeProductModal();
+      }
+    });
+  }
+
+  function getProductKeys() {
+    return Object.keys(PRODUCTS);
+  }
+
+  function openProductModal(productId) {
+    const prod = PRODUCTS[productId ? productId.toString() : ''];
+    if (!prod) return;
+
+    activeModalProductId = prod.id.toString();
+    const backdrop = ensureProductModalDOM();
+
+    // Populate Visuals
+    const visualCol = backdrop.querySelector('#dpo-modal-visual');
+    const imgElem = backdrop.querySelector('#modal-product-image');
+    const badgeElem = backdrop.querySelector('#modal-product-badge');
+    const counterElem = backdrop.querySelector('#modal-product-counter');
+    const imgContainer = backdrop.querySelector('#dpo-modal-img-container');
+    const zoomLabel = backdrop.querySelector('#dpo-zoom-label');
+    const zoomIcon = backdrop.querySelector('#dpo-zoom-toggle-btn i');
+
+    const isGold = prod.category === 'লাইফটাইম মেম্বারশিপ' || prod.name.includes('মেম্বারশিপ');
+    if (isGold) {
+      visualCol.classList.add('gold-bg');
+    } else {
+      visualCol.classList.remove('gold-bg');
+    }
+
+    imgElem.src = prod.image || 'assets/images/milk-1l.jpg';
+    imgElem.alt = prod.name;
+    badgeElem.textContent = prod.featured ? 'স্পেশাল প্যাকেজ' : (prod.category || 'ফার্ম ফ্রেশ');
+    
+    // Reset Zoom
+    imgContainer.classList.remove('zoomed');
+    if (zoomLabel) zoomLabel.textContent = 'জুম করুন';
+    if (zoomIcon) zoomIcon.className = 'fa-solid fa-magnifying-glass-plus';
+
+    // Calculate product index for counter
+    const keys = getProductKeys();
+    const curIndex = keys.indexOf(activeModalProductId);
+    if (counterElem && curIndex !== -1) {
+      const bnDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+      const curBn = (curIndex + 1).toString().split('').map(d => bnDigits[d] || d).join('');
+      const totBn = keys.length.toString().split('').map(d => bnDigits[d] || d).join('');
+      counterElem.textContent = `${curBn} / ${totBn}`;
+    }
+
+    // Populate Details
+    backdrop.querySelector('#modal-product-cat').textContent = prod.category || 'অফিসিয়াল প্যাকেজ';
+    backdrop.querySelector('#modal-product-title').textContent = prod.name;
+    backdrop.querySelector('#modal-product-desc').textContent = prod.description || '১০০% প্রাকৃতিক, খাঁটি ও ফ্রেশ কোয়ালিটি নিশ্চয়তা।';
+    backdrop.querySelector('#modal-product-price').textContent = `৳ ${prod.price}`;
+    backdrop.querySelector('#modal-product-unit').textContent = `/ ${prod.unit || '১ পিস'}`;
+
+    const oldPriceElem = backdrop.querySelector('#modal-product-oldprice');
+    if (prod.oldPrice) {
+      oldPriceElem.textContent = `৳ ${prod.oldPrice}`;
+      oldPriceElem.style.display = 'inline';
+    } else {
+      oldPriceElem.style.display = 'none';
+    }
+
+    const specialBox = backdrop.querySelector('#modal-special-box');
+    const specialText = backdrop.querySelector('#modal-special-text');
+    if (prod.memberPrice && prod.memberPrice < prod.price) {
+      specialText.textContent = `মেম্বারশিপ স্পেশাল: ৳ ${prod.memberPrice} (${prod.price - prod.memberPrice} টাকা ছাড়)`;
+      specialBox.style.display = 'flex';
+    } else if (isGold) {
+      specialText.textContent = 'আজীবন প্রতিটি লিটারে ৫ টাকা নিশ্চিত ছাড়!';
+      specialBox.style.display = 'flex';
+    } else {
+      specialBox.style.display = 'none';
+    }
+
+    // Reset Quantity
+    const qtyInput = backdrop.querySelector('#modal-qty-input');
+    if (qtyInput) qtyInput.value = 1;
+
+    // WhatsApp Order Link
+    const waBtn = backdrop.querySelector('#modal-whatsapp-btn');
+    const waText = encodeURIComponent(`আসসালামু আলাইকুম Dairy Pure & Organic,\nআমি "${prod.name}" (৳${prod.price} / ${prod.unit || '১ পিস'}) অর্ডার করতে চাই।`);
+    waBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
+
+    // Open Modal
+    backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProductModal() {
+    const backdrop = document.getElementById('dpo-product-modal-backdrop');
+    if (backdrop) {
+      backdrop.classList.remove('active');
+      const cartDrawer = document.getElementById('cart-drawer');
+      const isCartOpen = cartDrawer && cartDrawer.classList.contains('active');
+      if (!isCartOpen) {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  function navigateModalProducts(direction) {
+    const keys = getProductKeys();
+    if (keys.length <= 1) return;
+    let index = keys.indexOf(activeModalProductId);
+    if (index === -1) index = 0;
+    let nextIndex = index + direction;
+    if (nextIndex < 0) nextIndex = keys.length - 1;
+    if (nextIndex >= keys.length) nextIndex = 0;
+    openProductModal(keys[nextIndex]);
+  }
+
+  // Global Click listener for Opening Product Image Modal
+  document.addEventListener('click', function (e) {
+    // If clicked on quickview button
+    const quickviewTrigger = e.target.closest('[data-quickview]');
+    if (quickviewTrigger) {
+      e.preventDefault();
+      e.stopPropagation();
+      const pId = quickviewTrigger.getAttribute('data-quickview');
+      openProductModal(pId);
+      return;
+    }
+
+    // If clicked on image wrap (avoid triggering if clicked on add-to-cart or whatsapp button)
+    const imgWrap = e.target.closest('.product-image-wrap');
+    if (imgWrap) {
+      const pId = imgWrap.getAttribute('data-product-id');
+      if (pId) {
+        e.preventDefault();
+        openProductModal(pId);
+        return;
+      }
+      // Fallback: check product-card
+      const card = imgWrap.closest('.product-card');
+      if (card) {
+        const addBtn = card.querySelector('[data-add-to-cart]');
+        if (addBtn) {
+          const fallbackId = addBtn.getAttribute('data-add-to-cart');
+          if (fallbackId) {
+            e.preventDefault();
+            openProductModal(fallbackId);
+          }
+        }
+      }
+    }
+  });
+
+  // Global Keyboard Shortcuts for Product Modal
+  document.addEventListener('keydown', function (e) {
+    const backdrop = document.getElementById('dpo-product-modal-backdrop');
+    if (backdrop && backdrop.classList.contains('active')) {
+      if (e.key === 'Escape') {
+        closeProductModal();
+      } else if (e.key === 'ArrowLeft') {
+        navigateModalProducts(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateModalProducts(1);
+      }
+    }
+  });
+
+  // Expose global methods
+  window.dpoOpenProductModal = openProductModal;
+  window.dpoCloseProductModal = closeProductModal;
+
   // --- Dark & Light Mode Theme Toggle Engine ---
   function initThemeToggle() {
     const savedTheme = localStorage.getItem('dpo_theme');
@@ -478,3 +818,4 @@ document.addEventListener('DOMContentLoaded', function () {
   loadCart();
   loadProductsFromAPI();
 });
+

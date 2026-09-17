@@ -39,6 +39,38 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Admin Auth API
+app.post('/api/admin/login', (req, res) => {
+  const { identifier, password } = req.body;
+  const validEmail = 'naimtv90@gmail.com';
+  const validUsername = 'naimtv90';
+  const validPassword = '#naim#0191';
+
+  const isUserMatch = identifier && (
+    identifier.trim().toLowerCase() === validEmail.toLowerCase() ||
+    identifier.trim().toLowerCase() === validUsername.toLowerCase()
+  );
+
+  if (isUserMatch && password === validPassword) {
+    return res.json({
+      success: true,
+      message: 'লগইন সফল হয়েছে',
+      user: {
+        name: 'Naim (Admin)',
+        email: validEmail,
+        username: validUsername,
+        role: 'Super Admin'
+      },
+      token: 'dpo_sec_' + Buffer.from(Date.now() + ':' + validEmail).toString('base64')
+    });
+  } else {
+    return res.status(401).json({
+      success: false,
+      message: 'ভুল ইমেইল/ইউজারনেম অথবা পাসওয়ার্ড! দয়া করে সঠিক তথ্য দিন।'
+    });
+  }
+});
+
 // Admin fallback (serve admin/index.html for /admin routes)
 app.get('/admin/*', (req, res) => {
   res.sendFile(path.join(ADMIN_DIR, 'index.html'));

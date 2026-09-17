@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="bn" ng-app="dpoAdminApp">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WM47B7RE6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WM47B7RE6');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DPO Admin CMS – প্রোডাক্ট ম্যানেজমেন্ট প্যানেল</title>
@@ -15,6 +25,7 @@
 
     <!-- Inline Critical CSS -->
     <style>
+        [ng-cloak] { display: none !important; }
         .sidebar-logo { width: 42px !important; height: 42px !important; max-width: 42px !important; max-height: 42px !important; object-fit: contain; }
         .product-thumb { width: 48px !important; height: 48px !important; max-width: 48px !important; max-height: 48px !important; object-fit: cover; border-radius: 8px; }
     </style>
@@ -29,10 +40,78 @@
     <script src="/admin/js/app.js"></script>
     <script src="js/app.js"></script>
 </head>
-<body ng-controller="ProductController">
+<body ng-controller="ProductController" ng-cloak>
 
-    <!-- Admin Sidebar -->
-    <aside class="admin-sidebar" id="adminSidebar">
+    <!-- Admin Login Screen (Shown when NOT authenticated) -->
+    <div class="login-wrapper" ng-if="!isAuthenticated">
+        <div class="login-card">
+            <div class="login-brand">
+                <div class="login-logo-wrap">
+                    <img src="/assets/images/logo.png" alt="Dairy Pure & Organic">
+                </div>
+                <h2>Dairy Pure &amp; Organic</h2>
+                <p>অ্যাডমিন সিএমএস পোর্টাল • সিকিউর লগইন</p>
+                <div class="login-badge">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Authorized Access Only</span>
+                </div>
+            </div>
+
+            <!-- Error Alert -->
+            <div class="login-error-alert" ng-if="loginError">
+                <i class="fa-solid fa-circle-exclamation" style="font-size: 16px;"></i>
+                <span>{{loginError}}</span>
+            </div>
+
+            <!-- Login Form -->
+            <form ng-submit="handleLogin()">
+                <div class="login-form-group">
+                    <label for="admin-identifier">ইমেইল বা ইউজারনেম *</label>
+                    <div class="login-input-wrap">
+                        <i class="fa-solid fa-envelope input-icon"></i>
+                        <input type="text" id="admin-identifier" ng-model="loginForm.identifier" placeholder="যেমন: naimtv90@gmail.com" required autocomplete="username" autofocus>
+                    </div>
+                </div>
+
+                <div class="login-form-group">
+                    <label for="admin-password">পাসওয়ার্ড *</label>
+                    <div class="login-input-wrap">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input type="{{showPassword ? 'text' : 'password'}}" id="admin-password" ng-model="loginForm.password" placeholder="আপনার গোপন পাসওয়ার্ড দিন" required autocomplete="current-password">
+                        <button type="button" class="toggle-pass-btn" ng-click="togglePasswordVisibility()" title="{{showPassword ? 'পাসওয়ার্ড লুকান' : 'পাসওয়ার্ড দেখুন'}}">
+                            <i class="fa-solid" ng-class="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="login-options-row">
+                    <label class="login-remember-label">
+                        <input type="checkbox" ng-model="loginForm.rememberMe">
+                        <span>লগইন মনে রাখুন</span>
+                    </label>
+                    <span style="font-size: 12px; color: #64748b;">
+                        <i class="fa-solid fa-lock"></i> SSL প্রোটেক্টেড
+                    </span>
+                </div>
+
+                <button type="submit" class="login-submit-btn" ng-disabled="loginLoading">
+                    <i class="fa-solid fa-spinner fa-spin" ng-if="loginLoading"></i>
+                    <i class="fa-solid fa-right-to-bracket" ng-if="!loginLoading"></i>
+                    <span>{{loginLoading ? 'যাচাই করা হচ্ছে...' : 'লগইন করুন'}}</span>
+                </button>
+            </form>
+
+            <div class="login-card-footer">
+                <a href="/index.html">
+                    <i class="fa-solid fa-arrow-left"></i> ওয়েবসাইটে ফিরে যান
+                </a>
+                <span>DPO Admin v2.0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Sidebar (Shown when logged in) -->
+    <aside class="admin-sidebar" id="adminSidebar" ng-if="isAuthenticated">
         <div class="sidebar-header">
             <img src="/assets/images/logo.png" alt="DPO Logo" class="sidebar-logo">
             <div class="sidebar-title">
@@ -62,6 +141,21 @@
             </li>
         </ul>
 
+        <!-- Sidebar User Profile Card -->
+        <div class="sidebar-user-box">
+            <div class="admin-avatar">
+                N
+                <span class="status-dot"></span>
+            </div>
+            <div class="sidebar-user-info">
+                <div class="name">Naim (Admin)</div>
+                <div class="email">naimtv90@gmail.com</div>
+            </div>
+            <button class="icon-btn delete" ng-click="logout()" title="লগআউট করুন" style="padding: 6px; width: 32px; height: 32px; flex-shrink: 0;">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+
         <div class="sidebar-footer">
             <a href="/index.html">
                 <i class="fa-solid fa-house"></i>
@@ -70,21 +164,35 @@
         </div>
     </aside>
 
-    <!-- Main Content Area -->
-    <main class="admin-main">
+    <!-- Main Content Area (Shown when logged in) -->
+    <main class="admin-main" ng-if="isAuthenticated">
         <!-- Top Header -->
         <header class="admin-header">
             <div class="header-left">
                 <h1>প্রোডাক্ট ক্যাটালগ ও ইনভেন্টরি</h1>
             </div>
-            <div class="header-right">
-                <button class="theme-toggle-btn" id="theme-toggle-btn" title="ডার্ক / লাইট মোড পরিবর্তন করুন" aria-label="Toggle Dark Mode" style="margin-right: 8px;">
+            <div class="header-right" style="display: flex; align-items: center; gap: 12px;">
+                <button class="theme-toggle-btn" id="theme-toggle-btn" title="ডার্ক / লাইট মোড পরিবর্তন করুন" aria-label="Toggle Dark Mode">
                     <i class="fa-solid fa-moon"></i>
                 </button>
-                <div class="admin-badge">
-                    <div class="dot"></div>
-                    <span>Node.js & AngularJS লাইভ</span>
+
+                <!-- Admin User Profile Badge -->
+                <div class="admin-user-profile">
+                    <div class="admin-avatar">
+                        N
+                        <span class="status-dot"></span>
+                    </div>
+                    <div class="admin-user-details">
+                        <span class="admin-user-name">naimtv90@gmail.com</span>
+                        <span class="admin-user-role"><i class="fa-solid fa-circle-check"></i> Super Admin</span>
+                    </div>
                 </div>
+
+                <!-- Quick Logout Button -->
+                <button class="btn-admin-logout" ng-click="logout()" title="প্যানেল থেকে লগআউট করুন">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>লগআউট</span>
+                </button>
             </div>
         </header>
 
@@ -224,7 +332,7 @@
     </main>
 
     <!-- Add / Edit Modal -->
-    <div class="modal-overlay" ng-if="showModal">
+    <div class="modal-overlay" ng-if="isAuthenticated && showModal">
         <div class="modal-dialog">
             <div class="modal-header">
                 <h3>{{isEditing ? 'প্রোডাক্ট এডিট করুন' : 'নতুন প্রোডাক্ট যুক্ত করুন'}}</h3>
@@ -309,7 +417,7 @@
     </div>
 
     <!-- Delete Confirmation Modal -->
-    <div class="modal-overlay" ng-if="showDeleteModal">
+    <div class="modal-overlay" ng-if="isAuthenticated && showDeleteModal">
         <div class="modal-dialog" style="max-width: 420px; text-align: center;">
             <div class="modal-body" style="padding: 32px 24px;">
                 <i class="fa-solid fa-triangle-exclamation" style="font-size: 50px; color: var(--danger); margin-bottom: 16px;"></i>

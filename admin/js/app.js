@@ -25,6 +25,105 @@ app.directive('fileModel', ['$parse', function ($parse) {
 }]);
 
 app.controller('ProductController', ['$scope', '$http', function ($scope, $http) {
+  // Authentication State
+  $scope.isAuthenticated = false;
+  $scope.currentUser = null;
+  $scope.loginForm = {
+    identifier: '',
+    password: '',
+    rememberMe: true
+  };
+  $scope.loginError = '';
+  $scope.loginLoading = false;
+  $scope.showPassword = false;
+
+  // Authorized Admin Credentials
+  var AUTH_EMAIL = 'naimtv90@gmail.com';
+  var AUTH_USER = 'naimtv90';
+  var AUTH_PASS = '#naim#0191';
+
+  $scope.togglePasswordVisibility = function () {
+    $scope.showPassword = !$scope.showPassword;
+  };
+
+  $scope.checkAuth = function () {
+    var stored = localStorage.getItem('dpo_admin_auth') || sessionStorage.getItem('dpo_admin_auth');
+    if (stored) {
+      try {
+        var user = JSON.parse(stored);
+        if (user && (user.email === AUTH_EMAIL || user.username === AUTH_USER)) {
+          $scope.isAuthenticated = true;
+          $scope.currentUser = user;
+          $scope.loadProducts();
+          return;
+        }
+      } catch (e) {
+        localStorage.removeItem('dpo_admin_auth');
+        sessionStorage.removeItem('dpo_admin_auth');
+      }
+    }
+    $scope.isAuthenticated = false;
+    $scope.currentUser = null;
+  };
+
+  $scope.handleLogin = function () {
+    $scope.loginError = '';
+    var id = ($scope.loginForm.identifier || '').trim();
+    var pass = $scope.loginForm.password || '';
+
+    if (!id || !pass) {
+      $scope.loginError = 'দয়া করে ইমেইল/ইউজারনেম এবং পাসওয়ার্ড প্রদান করুন।';
+      return;
+    }
+
+    $scope.loginLoading = true;
+
+    // Verify credentials
+    var isUserMatch = (id.toLowerCase() === AUTH_EMAIL.toLowerCase()) || (id.toLowerCase() === AUTH_USER.toLowerCase());
+    var isPassMatch = (pass === AUTH_PASS);
+
+    setTimeout(function () {
+      $scope.$apply(function () {
+        $scope.loginLoading = false;
+        if (isUserMatch && isPassMatch) {
+          var userData = {
+            name: 'Naim (Admin)',
+            email: AUTH_EMAIL,
+            username: AUTH_USER,
+            role: 'Super Admin',
+            loginTime: new Date().toISOString()
+          };
+
+          if ($scope.loginForm.rememberMe) {
+            localStorage.setItem('dpo_admin_auth', JSON.stringify(userData));
+          } else {
+            sessionStorage.setItem('dpo_admin_auth', JSON.stringify(userData));
+          }
+
+          $scope.isAuthenticated = true;
+          $scope.currentUser = userData;
+          $scope.loginError = '';
+          $scope.loginForm.password = '';
+          $scope.showToast('স্বাগতম, ' + userData.name + '! অ্যাডমিন প্যানেলে সফলভাবে লগইন হয়েছে।', 'success');
+          $scope.loadProducts();
+        } else {
+          $scope.loginError = 'ভুল ইমেইল/ইউজারনেম অথবা পাসওয়ার্ড! দয়া করে সঠিক তথ্য দিয়ে চেষ্টা করুন।';
+          $scope.showToast($scope.loginError, 'error');
+        }
+      });
+    }, 350);
+  };
+
+  $scope.logout = function () {
+    localStorage.removeItem('dpo_admin_auth');
+    sessionStorage.removeItem('dpo_admin_auth');
+    $scope.isAuthenticated = false;
+    $scope.currentUser = null;
+    $scope.loginForm.password = '';
+    $scope.loginError = '';
+    $scope.showToast('সফলভাবে লগআউট সম্পন্ন হয়েছে।', 'info');
+  };
+
   // State variables
   $scope.products = [];
   $scope.loading = false;
@@ -368,5 +467,6 @@ app.controller('ProductController', ['$scope', '$http', function ($scope, $http)
 
   // Initial Load
   $scope.initTheme();
-  $scope.loadProducts();
+  $scope.checkAuth();
 }]);
+

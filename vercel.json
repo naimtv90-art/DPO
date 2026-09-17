@@ -146,6 +146,10 @@
     {
       "source": "/api/products",
       "destination": "/api/products.js"
+    },
+    {
+      "source": "/api/admin/login",
+      "destination": "/api/admin-login.js"
     }
   ]
 }

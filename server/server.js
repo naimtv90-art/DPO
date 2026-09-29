@@ -8,8 +8,25 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+
+app.post('/api/save-fixed-images', (req, res) => {
+  try {
+    const { img1, img2 } = req.body;
+    if (img1) {
+      const base64Data1 = img1.replace(/^data:image\/\w+;base64,/, '');
+      fs.writeFileSync(path.join(ROOT_DIR, 'assets', 'images', 'milk-1l.jpg'), Buffer.from(base64Data1, 'base64'));
+    }
+    if (img2) {
+      const base64Data2 = img2.replace(/^data:image\/\w+;base64,/, '');
+      fs.writeFileSync(path.join(ROOT_DIR, 'assets', 'images', 'milk-5l.jpg'), Buffer.from(base64Data2, 'base64'));
+    }
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
 
 // Serve static assets from main website directory
 const ROOT_DIR = path.join(__dirname, '..');

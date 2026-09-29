@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fix Packaging Labels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background: #222; color: #fff; font-family: sans-serif; padding: 20px;">
+    <h2>Refining Packaging Images</h2>
+    <div id="status">Processing...</div>
+    <canvas id="c1" width="1024" height="1024" style="max-width: 400px; border: 1px solid #444; margin: 10px;"></canvas>
+    <canvas id="c2" width="1024" height="1024" style="max-width: 400px; border: 1px solid #444; margin: 10px;"></canvas>
+
+    <script>
+    async function process() {
+        const status = document.getElementById('status');
+        
+        // --- 1L POUCH ---
+        const img1 = new Image();
+        img1.src = 'milk_1l_packet_1790709850369.jpg?' + Date.now();
+        await new Promise(r => img1.onload = r);
+        
+        const c1 = document.getElementById('c1');
+        const ctx1 = c1.getContext('2d');
+        ctx1.drawImage(img1, 0, 0, 1024, 1024);
+        
+        // Exact blue color of the ribbon
+        const p1 = ctx1.getImageData(300, 650, 1, 1).data;
+        ctx1.fillStyle = `rgb(${p1[0]}, ${p1[1]}, ${p1[2]})`;
+        
+        // Fill from after facebook text to end of ribbon on right
+        ctx1.fillRect(455, 625, 375, 48);
+        
+        // Draw green globe circle
+        ctx1.fillStyle = '#22c55e';
+        ctx1.beginPath();
+        ctx1.arc(505, 649, 11, 0, 2 * Math.PI);
+        ctx1.fill();
+        ctx1.strokeStyle = '#ffffff';
+        ctx1.lineWidth = 1.5;
+        ctx1.beginPath();
+        ctx1.arc(505, 649, 11, 0, 2 * Math.PI);
+        ctx1.stroke();
+        ctx1.beginPath();
+        ctx1.moveTo(494, 649); ctx1.lineTo(516, 649);
+        ctx1.moveTo(505, 638); ctx1.lineTo(505, 660);
+        ctx1.stroke();
+        
+        // Text
+        ctx1.fillStyle = '#ffffff';
+        ctx1.font = '600 23px Outfit, sans-serif';
+        ctx1.textBaseline = 'middle';
+        ctx1.fillText('dairypureorganic.com', 528, 649);
+        
+        const data1 = c1.toDataURL('image/jpeg', 0.96);
+        
+        // --- 5L JAR ---
+        const img2 = new Image();
+        img2.src = 'milk_5l_jar_1790709869865.jpg?' + Date.now();
+        await new Promise(r => img2.onload = r);
+        
+        const c2 = document.getElementById('c2');
+        const ctx2 = c2.getContext('2d');
+        ctx2.drawImage(img2, 0, 0, 1024, 1024);
+        
+        // Redraw full ribbon on 5L for perfectly seamless appearance
+        ctx2.fillStyle = '#17478a';
+        ctx2.fillRect(296, 622, 420, 39);
+        
+        // 1. Facebook icon & text
+        ctx2.fillStyle = '#1877f2';
+        ctx2.beginPath();
+        ctx2.arc(314, 641.5, 9, 0, 2 * Math.PI);
+        ctx2.fill();
+        ctx2.fillStyle = '#ffffff';
+        ctx2.font = 'bold 13px sans-serif';
+        ctx2.textBaseline = 'middle';
+        ctx2.fillText('f', 311, 642);
+        
+        ctx2.fillStyle = '#ffffff';
+        ctx2.font = '500 15px Outfit, sans-serif';
+        ctx2.fillText('fb.com/DairyPureOrganic', 328, 641.5);
+        
+        // 2. Website globe & text
+        ctx2.fillStyle = '#22c55e';
+        ctx2.beginPath();
+        ctx2.arc(522, 641.5, 8.5, 0, 2 * Math.PI);
+        ctx2.fill();
+        ctx2.strokeStyle = '#ffffff';
+        ctx2.lineWidth = 1.2;
+        ctx2.beginPath();
+        ctx2.arc(522, 641.5, 8.5, 0, 2 * Math.PI);
+        ctx2.stroke();
+        ctx2.beginPath();
+        ctx2.moveTo(513.5, 641.5); ctx2.lineTo(530.5, 641.5);
+        ctx2.moveTo(522, 633); ctx2.lineTo(522, 650);
+        ctx2.stroke();
+        
+        ctx2.fillStyle = '#ffffff';
+        ctx2.font = '600 16px Outfit, sans-serif';
+        ctx2.fillText('dairypureorganic.com', 538, 641.5);
+        
+        const data2 = c2.toDataURL('image/jpeg', 0.96);
+        
+        await fetch('/api/save-fixed-images', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                img1: data1,
+                img2: data2
+            })
+        });
+        
+        status.innerHTML = '<span style="color: #4ade80; font-weight: bold;">Done! Cleanly saved.</span>';
+    }
+    window.onload = () => setTimeout(process, 400);
+    </script>
+</body>
+</html>

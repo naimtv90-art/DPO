@@ -1,0 +1,1060 @@
+[
+  {
+    "file": "about.html",
+    "addressMatches": [
+      {
+        "line": 15,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 95,
+        "text": "\"addressLocality\": \"Mirpur 12\","
+      },
+      {
+        "line": 97,
+        "text": "\"postalCode\": \"1216\","
+      },
+      {
+        "line": 452,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 103,
+        "text": "\"telephone\": \"+8801712281861\","
+      },
+      {
+        "line": 110,
+        "text": "\"telephone\": \"+8801734580407\","
+      },
+      {
+        "line": 118,
+        "text": "\"https://wa.me/8801775002340\""
+      },
+      {
+        "line": 134,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 135,
+        "text": "<a href=\"tel:+8801734580407\"><i class=\"fa-solid fa-phone\"></i> +880 1734580407</a>"
+      },
+      {
+        "line": 136,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +880 1775 002 340</a>"
+      },
+      {
+        "line": 302,
+        "text": "<a href=\"tel:+8801712281861\" class=\"team-contact-btn\" title=\"Call\"><i class=\"fa-solid fa-phone\"></i></a>"
+      },
+      {
+        "line": 303,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" class=\"team-contact-btn wa\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 318,
+        "text": "<a href=\"tel:+8801734580407\" class=\"team-contact-btn\" title=\"Call\"><i class=\"fa-solid fa-phone\"></i></a>"
+      },
+      {
+        "line": 319,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" class=\"team-contact-btn wa\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 334,
+        "text": "<a href=\"tel:+8801712281861\" class=\"team-contact-btn\" title=\"Call\"><i class=\"fa-solid fa-phone\"></i></a>"
+      },
+      {
+        "line": 335,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" class=\"team-contact-btn wa\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 350,
+        "text": "<a href=\"tel:+8801734580407\" class=\"team-contact-btn\" title=\"Call\"><i class=\"fa-solid fa-phone\"></i></a>"
+      },
+      {
+        "line": 351,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" class=\"team-contact-btn wa\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 381,
+        "text": "<a href=\"tel:+8801712281861\" class=\"team-contact-btn\" title=\"Call\"><i class=\"fa-solid fa-phone\"></i></a>"
+      },
+      {
+        "line": 382,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" class=\"team-contact-btn wa\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 398,
+        "text": "<a href=\"tel:+8801734580407\" class=\"team-contact-btn\" title=\"Call\"><i class=\"fa-solid fa-phone\"></i></a>"
+      },
+      {
+        "line": 399,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" class=\"team-contact-btn wa\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 420,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 453,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 454,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 455,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 478,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>আমাদের সম্পর্কে ও টিম | Dairy Pure & Organic</title>"
+      },
+      {
+        "line": 23,
+        "text": "<meta property=\"og:title\" content=\"আমাদের সম্পর্কে ও পরিচালনা পর্ষদ | Dairy Pure & Organic\">"
+      }
+    ]
+  },
+  {
+    "file": "checkout.html",
+    "addressMatches": [
+      {
+        "line": 303,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 93,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 94,
+        "text": "<a href=\"tel:+8801734580407\"><i class=\"fa-solid fa-phone\"></i> +880 1734580407</a>"
+      },
+      {
+        "line": 95,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +880 1775 002 340</a>"
+      },
+      {
+        "line": 271,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 304,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 305,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 306,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 329,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      },
+      {
+        "line": 533,
+        "text": "const waUrl = `https://wa.me/8801775002340?text=${encodeURIComponent(waMsg)}`;"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>অর্ডার চেকআউট | Dairy Pure & Organic</title>"
+      },
+      {
+        "line": 16,
+        "text": "<meta property=\"og:title\" content=\"অর্ডার চেকআউট | Dairy Pure & Organic\">"
+      }
+    ]
+  },
+  {
+    "file": "contact.html",
+    "addressMatches": [
+      {
+        "line": 15,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 95,
+        "text": "\"addressLocality\": \"Mirpur 12\","
+      },
+      {
+        "line": 97,
+        "text": "\"postalCode\": \"1216\","
+      },
+      {
+        "line": 108,
+        "text": "\"name\": \"Mirpur 12, Dhaka\""
+      },
+      {
+        "line": 211,
+        "text": "<p>House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</p>"
+      },
+      {
+        "line": 344,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 7,
+        "text": "<meta name=\"description\" content=\"Dairy Pure & Organic এর সাথে যোগাযোগ করুন। পল্লবী, মিরপুর ১২, ঢাকা। খাঁটি গরুর দুধ হোম ডেলিভারি ও কাস্টমার সাপোর্ট: +880 1712-281861, +880 1734580407।\">"
+      },
+      {
+        "line": 24,
+        "text": "<meta property=\"og:description\" content=\"মিরপুর ১২ ও ঢাকায় খাঁটি ও তাজা গরুর দুধ ডেলিভারির জন্য যোগাযোগ করুন। ফোন: +880 1712-281861, হোয়াটসঅ্যাপ: +880 1775 002 340।\">"
+      },
+      {
+        "line": 90,
+        "text": "\"telephone\": \"+8801712281861\","
+      },
+      {
+        "line": 121,
+        "text": "\"https://wa.me/8801775002340\""
+      },
+      {
+        "line": 137,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 138,
+        "text": "<a href=\"tel:+8801734580407\"><i class=\"fa-solid fa-phone\"></i> +880 1734580407</a>"
+      },
+      {
+        "line": 139,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +880 1775 002 340</a>"
+      },
+      {
+        "line": 218,
+        "text": "<p><a href=\"tel:+8801712281861\">+880 1712-281861</a><br><a href=\"tel:+8801734580407\">+880 1734580407</a></p>"
+      },
+      {
+        "line": 225,
+        "text": "<p><a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></p>"
+      },
+      {
+        "line": 278,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আসসালামু%20আলাইকুম,%20আমি%20Dairy%20Pure%20থেকে%20দুধ%20অর্ডার%20করতে%20চাই।\" class=\"btn btn-whatsapp\" style=\"width: 100%; padding: 12px;\" target=\"_blank\">"
+      },
+      {
+        "line": 312,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 345,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 346,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 347,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 370,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>যোগাযোগ ও কাস্টমার সাপোর্ট | Dairy Pure & Organic</title>"
+      },
+      {
+        "line": 23,
+        "text": "<meta property=\"og:title\" content=\"যোগাযোগ ও কাস্টমার সাপোর্ট | Dairy Pure & Organic\">"
+      }
+    ]
+  },
+  {
+    "file": "cow-milk-home-delivery-pallabi.html",
+    "addressMatches": [
+      {
+        "line": 19,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Pallabi, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 82,
+        "text": "\"streetAddress\": \"House 18, Road 4, Block C, Mirpur-12\","
+      },
+      {
+        "line": 83,
+        "text": "\"addressLocality\": \"Pallabi, Mirpur 12\","
+      },
+      {
+        "line": 85,
+        "text": "\"postalCode\": \"1216\","
+      },
+      {
+        "line": 95,
+        "text": "{ \"@type\": \"AdministrativeArea\", \"name\": \"Mirpur 12\" },"
+      },
+      {
+        "line": 352,
+        "text": "<p><i class=\"fa-solid fa-location-dot\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka-1216</p>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 74,
+        "text": "\"telephone\": \"+8801712281861\","
+      },
+      {
+        "line": 108,
+        "text": "\"text\": \"Dairy Pure & Organic ওয়েবসাইট, ফোন (+880 1712-281861) বা হোয়াটসঅ্যাপ (+880 1775 002 340)-এ যোগাযোগ করে পল্লবীর যেকোনো বাসায় সরাসরি তাজা কাঁচা গরুর দুধ হোম ডেলিভারি পাওয়া যায়।\""
+      },
+      {
+        "line": 154,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 155,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk%20in%20Pallabi\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 225,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আমি%20পল্লবীতে%20দুধ%20অর্ডার%20করতে%20চাই\" class=\"btn btn-outline\" style=\"padding: 12px 26px; font-size: 15px; color: #fff; border-color: #fff;\" target=\"_blank\">"
+      },
+      {
+        "line": 285,
+        "text": "<li>অথবা সরাসরি ফোন করুন <a href=\"tel:+8801712281861\" style=\"color: var(--dpo-blue); font-weight: 600;\">+880 1712-281861</a> নম্বরে।</li>"
+      },
+      {
+        "line": 353,
+        "text": "<p><i class=\"fa-solid fa-phone\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a>, <a href=\"tel:+8801734580407\">+880 1734580407</a></p>"
+      },
+      {
+        "line": 354,
+        "text": "<p><i class=\"fa-brands fa-whatsapp\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></p>"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>পল্লবীতে খাঁটি গরুর দুধ হোম ডেলিভারি | Dairy Pure & Organic</title>"
+      },
+      {
+        "line": 30,
+        "text": "<meta property=\"og:title\" content=\"পল্লবীতে খাঁটি গরুর দুধ হোম ডেলিভারি | Dairy Pure & Organic\">"
+      },
+      {
+        "line": 323,
+        "text": "<div class=\"footer-logo-text\">Dairy Pure <span>& ORGANIC</span></div>"
+      }
+    ]
+  },
+  {
+    "file": "google94087461699d4d90.html",
+    "addressMatches": [],
+    "phoneMatches": [],
+    "nameMatches": []
+  },
+  {
+    "file": "gorur-dudh-home-delivery.html",
+    "addressMatches": [
+      {
+        "line": 19,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 78,
+        "text": "\"streetAddress\": \"House 18, Road 4, Block C, Mirpur-12\","
+      },
+      {
+        "line": 80,
+        "text": "\"postalCode\": \"1216\","
+      },
+      {
+        "line": 84,
+        "text": "\"areaServed\": \"Mirpur 12, Pallabi, Dhaka\","
+      },
+      {
+        "line": 407,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 74,
+        "text": "\"telephone\": \"+8801775002340\","
+      },
+      {
+        "line": 141,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 142,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 223,
+        "text": "Dairy Pure & Organic-এ <strong>২৪/৭ (দিন-রাত ২৪ ঘণ্টা)</strong> সরাসরি খামার থেকে সংগৃহীত খাঁটি কাঁচা তরল দুধের নির্ভরযোগ্য হোম ডেলিভারি ও অর্ডার সেবা রয়েছে। ওয়েবসাইট বা অফিসিয়াল নম্বরে (<a href=\"tel:+8801712281861\" style=\"color: inherit; font-weight: 700;\">+880 1712-281861</a>, <a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"color: #16a34a; font-weight: 700;\">+880 1775 002 340</a>) যেকোনো সময় যোগাযোগ করে ৫০০ মি.লি., ১ লিটার বা ৫ লিটার দুধের ইনস্ট্যান্ট ডেলিভারি বা নিয়মিত মাসিক সাবস্ক্রিপশন বুক করা যায়।"
+      },
+      {
+        "line": 268,
+        "text": "<li><strong>হোয়াটসঅ্যাপ মেসেজ:</strong> আমাদের অফিসিয়াল নম্বরে (<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"color: #16a34a; font-weight: 600;\">+880 1775 002 340</a>) দিন-রাত যেকোনো সময় আপনার নাম, ঠিকানা ও পরিমাণ লিখে সহজে অর্ডার বুক করুন।</li>"
+      },
+      {
+        "line": 351,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আমি%20হোম%20ডেলিভারি%20সম্পর্কে%20জানতে%20চাই।\" target=\"_blank\" class=\"btn btn-whatsapp\" style=\"padding: 12px 24px; font-size: 15px;\">"
+      },
+      {
+        "line": 375,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 408,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 409,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 410,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 433,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>খাঁটি গরুর দুধ হোম ডেলিভারি সেবা | Dairy Pure & Organic</title>"
+      },
+      {
+        "line": 27,
+        "text": "<meta property=\"og:title\" content=\"খাঁটি গরুর দুধ ২৪/৭ হোম ডেলিভারি সেবা | Dairy Pure & Organic\">"
+      }
+    ]
+  },
+  {
+    "file": "index.html",
+    "addressMatches": [
+      {
+        "line": 11,
+        "text": "<meta name=\"keywords\" content=\"খাঁটি গরুর দুধ, তাজা গরুর দুধ, খাঁটি দুধ, গরুর দুধ হোম ডেলিভারি, মিরপুর ১২ দুধ, মিরপুর ১২ গরুর দুধ, মিরপুর ১২ দুধ হোম ডেলিভারি, খাঁটি দুধ হোম ডেলিভারি, তাজা দুধ হোম ডেলিভারি, pure cow milk, fresh cow milk, fresh milk delivery, cow milk home delivery, pure milk, organic milk, fresh milk in Mirpur, cow milk delivery in Mirpur, milk delivery in Mirpur 12, fresh cow milk delivery in Dhaka\">"
+      },
+      {
+        "line": 17,
+        "text": "<!-- GEO & Local SEO Meta Tags (Dhaka, Mirpur 12, Bangladesh) -->"
+      },
+      {
+        "line": 19,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 22,
+        "text": "<meta name=\"locality\" content=\"Mirpur 12, Pallobi\">"
+      },
+      {
+        "line": 97,
+        "text": "\"streetAddress\": \"House 18, Road 4, Block C, Mirpur-12\","
+      },
+      {
+        "line": 98,
+        "text": "\"addressLocality\": \"Mirpur 12\","
+      },
+      {
+        "line": 100,
+        "text": "\"postalCode\": \"1216\","
+      },
+      {
+        "line": 111,
+        "text": "\"name\": \"Mirpur 12\""
+      },
+      {
+        "line": 748,
+        "text": "<!-- Local Delivery & Geo Intent Section (Mirpur 12, Dhaka) -->"
+      },
+      {
+        "line": 982,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 68,
+        "text": "\"telephone\": \"+8801712281861\","
+      },
+      {
+        "line": 72,
+        "text": "\"telephone\": \"+8801712281861\","
+      },
+      {
+        "line": 82,
+        "text": "\"telephone\": \"+8801734580407\","
+      },
+      {
+        "line": 136,
+        "text": "\"https://wa.me/8801775002340\""
+      },
+      {
+        "line": 147,
+        "text": "\"telephone\": \"+8801712281861\","
+      },
+      {
+        "line": 297,
+        "text": "\"text\": \"অনলাইন শপ (www.dairypureorganic.com/shop) ভিজিট করে সরাসরি কার্টে যুক্ত করে চেকআউট করুন, অথবা ফোন (+880 1712-281861, +880 1734580407) ও হোয়াটসঅ্যাপ (+880 1775 002 340)-এ যোগাযোগ করে অর্ডার করুন।\""
+      },
+      {
+        "line": 351,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 352,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 429,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আসসালামু%20আলাইকুম,%20আমি%20Dairy%20Pure%20থেকে%20দুধ%20ও%20মেম্বারশিপ%20কার্ড%20নিতে%20চাই।\" class=\"btn btn-outline\" style=\"font-size: 16px; padding: 14px 28px;\" target=\"_blank\">"
+      },
+      {
+        "line": 546,
+        "text": "<a href=\"https://wa.me/8801775002340?text=হ্যালো+Dairy+Pure+%26+Organic%2C+আমি+খাঁটি+কাঁচা+তরল+দুধ+(১+লিটার)+(৳100)+অর্ডার+করতে+চাই।\" class=\"btn btn-whatsapp\" target=\"_blank\" style=\"padding: 10px 12px;\">"
+      },
+      {
+        "line": 578,
+        "text": "<a href=\"https://wa.me/8801775002340?text=হ্যালো+Dairy+Pure+%26+Organic%2C+আমি+খাঁটি+কাঁচা+তরল+দুধ+(৫০০+মি.লি.+প্যাকেট)+(৳50)+অর্ডার+করতে+চাই।\" class=\"btn btn-whatsapp\" target=\"_blank\" style=\"padding: 10px 12px;\">"
+      },
+      {
+        "line": 611,
+        "text": "<a href=\"https://wa.me/8801775002340?text=হ্যালো+Dairy+Pure+%26+Organic%2C+আমি+খাঁটি+কাঁচা+তরল+দুধ+(৫+লিটার+ফ্যামিলি+প্যাক)+(৳475)+অর্ডার+করতে+চাই।\" class=\"btn btn-whatsapp\" target=\"_blank\" style=\"padding: 10px 12px;\">"
+      },
+      {
+        "line": 642,
+        "text": "<a href=\"https://wa.me/8801775002340?text=হ্যালো+Dairy+Pure+%26+Organic%2C+আমি+DPO+গোল্ড+মেম্বারশিপ+কার্ড+(লাইফটাইম)+(৳50)+অর্ডার+করতে+চাই।\" class=\"btn btn-whatsapp\" target=\"_blank\" style=\"padding: 10px 12px;\">"
+      },
+      {
+        "line": 668,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আমি%20৫০%20টাকার%20মেম্বারশিপ%20কার্ডের%20সুবিধা%20সম্পর্কে%20জানতে%20চাই।\" class=\"btn btn-outline\" style=\"font-size: 15px; padding: 12px 26px;\" target=\"_blank\">"
+      },
+      {
+        "line": 778,
+        "text": "<p><a href=\"tel:+8801712281861\" style=\"color: inherit; font-weight: 600;\">+880 1712-281861</a> বা হোয়াটসঅ্যাপে অর্ডার করুন।</p>"
+      },
+      {
+        "line": 902,
+        "text": "অনলাইন শপ (www.dairypureorganic.com/shop) ভিজিট করে সরাসরি কার্টে যুক্ত করে চেকআউট করুন, অথবা ফোন (+880 1712-281861, +880 1734580407) ও হোয়াটসঅ্যাপ (+880 1775 002 340)-এ যোগাযোগ করে অর্ডার করুন।"
+      },
+      {
+        "line": 950,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 983,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 984,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 985,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 1008,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>খাঁটি গরুর দুধ হোম ডেলিভারি মিরপুর ১২ | Dairy Pure & Organic</title>"
+      },
+      {
+        "line": 30,
+        "text": "<meta property=\"og:title\" content=\"খাঁটি গরুর দুধ হোম ডেলিভারি মিরপুর ১২ | Dairy Pure & Organic\">"
+      }
+    ]
+  },
+  {
+    "file": "khati-gorur-dudh.html",
+    "addressMatches": [
+      {
+        "line": 19,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 419,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 140,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 141,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 363,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20know%20about%20pure%20milk\" target=\"_blank\" class=\"btn btn-whatsapp\" style=\"padding: 12px 24px; font-size: 15px;\">"
+      },
+      {
+        "line": 387,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 420,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 421,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 422,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 445,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>খাঁটি গরুর দুধ চেনার উপায় ও বৈশিষ্ট্য | Dairy Pure & Organic</title>"
+      },
+      {
+        "line": 27,
+        "text": "<meta property=\"og:title\" content=\"খাঁটি গরুর দুধ চেনার উপায় ও বৈশিষ্ট্য | Dairy Pure & Organic\">"
+      }
+    ]
+  },
+  {
+    "file": "membership.html",
+    "addressMatches": [
+      {
+        "line": 418,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 104,
+        "text": "\"text\": \"ওয়েবসাইট থেকে অনলাইনে অর্ডার করা যাবে অথবা হোয়াটসঅ্যাপে (+8801775002340) মেসেজ দিয়ে হোম ডেলিভারির মাধ্যমে কার্ডটি সংগ্রহ করা যায়।\""
+      },
+      {
+        "line": 151,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 152,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 288,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আমি%20৫০%20টাকার%20DPO%20মেম্বারশিপ%20কার্ডটি%20নিতে%20চাই।\" class=\"btn btn-whatsapp\" style=\"width: 100%; padding: 13px; font-size: 15px;\" target=\"_blank\">"
+      },
+      {
+        "line": 386,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 419,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 420,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 421,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 444,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>৫০ টাকার আজীবন গোল্ড মেম্বারশিপ কার্ড – Dairy Pure & Organic | ঢাকা</title>"
+      },
+      {
+        "line": 30,
+        "text": "<meta property=\"og:title\" content=\"DPO গোল্ড মেম্বারশিপ কার্ড (লাইফটাইম) – মাত্র ৫০ টাকায় আজীবন ছাড়\">"
+      }
+    ]
+  },
+  {
+    "file": "milk-price.html",
+    "addressMatches": [
+      {
+        "line": 19,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 417,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 141,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 142,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 361,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আমি%20দুধের%20প্যাকেজ%20ও%20মেম্বারশিপ%20নিতে%20চাই।\" target=\"_blank\" class=\"btn btn-whatsapp\" style=\"padding: 12px 24px; font-size: 15px;\">"
+      },
+      {
+        "line": 385,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 418,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 419,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 420,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 443,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>খাঁটি গরুর দুধের বর্তমান দাম ও সাশ্রয়ী প্যাকেজ | DPO</title>"
+      },
+      {
+        "line": 27,
+        "text": "<meta property=\"og:title\" content=\"খাঁটি গরুর দুধের বর্তমান দাম ও সাশ্রয়ী প্যাকেজ | DPO\">"
+      }
+    ]
+  },
+  {
+    "file": "mirpur-12-milk-delivery.html",
+    "addressMatches": [
+      {
+        "line": 19,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 69,
+        "text": "\"name\": \"Dairy Pure & Organic - Mirpur 12 Delivery Hub\","
+      },
+      {
+        "line": 77,
+        "text": "\"streetAddress\": \"House 18, Road 4, Block C, Mirpur-12\","
+      },
+      {
+        "line": 79,
+        "text": "\"postalCode\": \"1216\","
+      },
+      {
+        "line": 88,
+        "text": "\"Mirpur 12\","
+      },
+      {
+        "line": 119,
+        "text": "\"text\": \"হ্যাঁ, আমাদের অফিস/হাবে (House 18, Road 4, Block C, Mirpur-12, Dhaka) এসেও আপনি সরাসরি যোগাযোগ ও দুধ সংগ্রহ করতে পারেন।\""
+      },
+      {
+        "line": 231,
+        "text": "Dairy Pure & Organic-এর অফিস ও সার্ভিস হাব মিরপুর ১২-এর <strong>House 18, Road 4, Block C, Mirpur-12, Dhaka 1216</strong> এ অবস্থিত। এখান থেকে মিরপুর ১২-এর ব্লক এ, বি, সি, ডি, ই এবং পল্লবী সংলগ্ন আবাসিক এলাকায় <strong>২৪/৭ (দিন-রাত ২৪ ঘণ্টা)</strong> সরাসরি খামার থেকে সংগৃহীত খাঁটি কাঁচা তরল গরুর দুধ হোম ডেলিভারি ও অর্ডার সেবা প্রদান করা হয়।"
+      },
+      {
+        "line": 288,
+        "text": "<strong>অফিস ঠিকানা:</strong> House 18, Road 4, Block C, Mirpur-12, Dhaka 1216, Bangladesh."
+      },
+      {
+        "line": 322,
+        "text": "হ্যাঁ, আমাদের অফিস/হাবে (House 18, Road 4, Block C, Mirpur-12, Dhaka) এসেও আপনি সরাসরি যোগাযোগ ও দুধ সংগ্রহ করতে পারেন।"
+      },
+      {
+        "line": 417,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 71,
+        "text": "\"telephone\": \"+8801775002340\","
+      },
+      {
+        "line": 149,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 150,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 272,
+        "text": "<i class=\"fa-solid fa-circle-check\"></i> <em>আপনার নির্দিষ্ট বাসা বা রোডে ডেলিভারি পেতে আমাদের হোয়াটসঅ্যাপ নম্বরে (<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"color: #16a34a; font-weight: 700;\">+880 1775 002 340</a>) যেকোনো সময় মেসেজ দিয়ে অর্ডার নিশ্চিত করতে পারেন।</em>"
+      },
+      {
+        "line": 361,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আমি%20মিরপুর%20১২%20থেকে%20দুধ%20ডেলিভারি%20নিতে%20চাই।\" target=\"_blank\" class=\"btn btn-whatsapp\" style=\"padding: 12px 24px; font-size: 15px;\">"
+      },
+      {
+        "line": 385,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 418,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 419,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 420,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 443,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>মিরপুর ১২ ও পল্লবীতে খাঁটি গরুর দুধ ডেলিভারি | DPO</title>"
+      },
+      {
+        "line": 27,
+        "text": "<meta property=\"og:title\" content=\"মিরপুর ১২ ও পল্লবীতে খাঁটি গরুর দুধ ২৪/৭ ডেলিভারি | DPO\">"
+      }
+    ]
+  },
+  {
+    "file": "pure-cow-milk-mirpur.html",
+    "addressMatches": [
+      {
+        "line": 19,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 82,
+        "text": "\"streetAddress\": \"House 18, Road 4, Block C, Mirpur-12\","
+      },
+      {
+        "line": 85,
+        "text": "\"postalCode\": \"1216\","
+      },
+      {
+        "line": 94,
+        "text": "{ \"@type\": \"AdministrativeArea\", \"name\": \"Mirpur 12\" },"
+      },
+      {
+        "line": 234,
+        "text": "<li><strong>সরবরাহকারী:</strong> Dairy Pure & Organic (House 18, Road 4, Block C, Mirpur-12)।</li>"
+      },
+      {
+        "line": 311,
+        "text": "<p><i class=\"fa-solid fa-location-dot\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka-1216</p>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 74,
+        "text": "\"telephone\": \"+8801712281861\","
+      },
+      {
+        "line": 109,
+        "text": "\"text\": \"Dairy Pure & Organic-এর অফিসিয়াল ওয়েবসাইট www.dairypureorganic.com অথবা সরাসরি ফোন (+880 1712-281861) ও হোয়াটসঅ্যাপে (+880 1775 002 340) অর্ডার করা যায়।\""
+      },
+      {
+        "line": 147,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 148,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk%20in%20Mirpur\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 218,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আমি%20মিরপুরে%20খাঁটি%20দুধ%20অর্ডার%20করতে%20চাই\" class=\"btn btn-outline\" style=\"padding: 12px 26px; font-size: 15px; color: #fff; border-color: #fff;\" target=\"_blank\">"
+      },
+      {
+        "line": 238,
+        "text": "<li><strong>অর্ডার পদ্ধতি:</strong> ওয়েবসাইট বা সরাসরি হটলাইন <a href=\"tel:+8801712281861\" style=\"color: var(--dpo-blue);\">+880 1712-281861</a>।</li>"
+      },
+      {
+        "line": 312,
+        "text": "<p><i class=\"fa-solid fa-phone\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a>, <a href=\"tel:+8801734580407\">+880 1734580407</a></p>"
+      },
+      {
+        "line": 313,
+        "text": "<p><i class=\"fa-brands fa-whatsapp\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></p>"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>মিরপুরে খাঁটি গরুর দুধ হোম ডেলিভারি | Dairy Pure & Organic</title>"
+      },
+      {
+        "line": 30,
+        "text": "<meta property=\"og:title\" content=\"মিরপুরে খাঁটি গরুর দুধ হোম ডেলিভারি | Dairy Pure & Organic\">"
+      },
+      {
+        "line": 282,
+        "text": "<div class=\"footer-logo-text\">Dairy Pure <span>& ORGANIC</span></div>"
+      }
+    ]
+  },
+  {
+    "file": "pure-milk-benefits.html",
+    "addressMatches": [
+      {
+        "line": 19,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 411,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 140,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 141,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 355,
+        "text": "<a href=\"https://wa.me/8801775002340?text=আমি%20খাঁটি%20দুধের%20অর্ডার%20করতে%20চাই।\" target=\"_blank\" class=\"btn btn-whatsapp\" style=\"padding: 12px 24px; font-size: 15px;\">"
+      },
+      {
+        "line": 379,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 412,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 413,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 414,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 437,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": []
+  },
+  {
+    "file": "shop.html",
+    "addressMatches": [
+      {
+        "line": 17,
+        "text": "<!-- GEO & Local SEO Meta Tags (Dhaka, Mirpur 12, Bangladesh) -->"
+      },
+      {
+        "line": 19,
+        "text": "<meta name=\"geo.placename\" content=\"House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh\">"
+      },
+      {
+        "line": 22,
+        "text": "<meta name=\"locality\" content=\"Mirpur 12, Pallobi\">"
+      },
+      {
+        "line": 406,
+        "text": "<div><i class=\"fa-solid fa-location-dot\" style=\"color: var(--dpo-sun); margin-right: 8px;\"></i> House 18, Road 4, Block C, Mirpur-12, Dhaka, Bangladesh</div>"
+      }
+    ],
+    "phoneMatches": [
+      {
+        "line": 150,
+        "text": "<a href=\"tel:+8801712281861\"><i class=\"fa-solid fa-phone\"></i> +880 1712-281861</a>"
+      },
+      {
+        "line": 151,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20pure%20milk\" target=\"_blank\"><i class=\"fa-brands fa-whatsapp\"></i> হোয়াটসঅ্যাপ: +8801775002340</a>"
+      },
+      {
+        "line": 254,
+        "text": "<a href=\"https://wa.me/8801775002340?text=হ্যালো+Dairy+Pure+%26+Organic%2C+আমি+খাঁটি+কাঁচা+তরল+দুধ+(১+লিটার)+(৳100)+অর্ডার+করতে+চাই।\" class=\"btn btn-whatsapp\" target=\"_blank\" style=\"padding: 10px 12px;\">"
+      },
+      {
+        "line": 286,
+        "text": "<a href=\"https://wa.me/8801775002340?text=হ্যালো+Dairy+Pure+%26+Organic%2C+আমি+খাঁটি+কাঁচা+তরল+দুধ+(৫০০+মি.লি.+প্যাকেট)+(৳50)+অর্ডার+করতে+চাই।\" class=\"btn btn-whatsapp\" target=\"_blank\" style=\"padding: 10px 12px;\">"
+      },
+      {
+        "line": 319,
+        "text": "<a href=\"https://wa.me/8801775002340?text=হ্যালো+Dairy+Pure+%26+Organic%2C+আমি+খাঁটি+কাঁচা+তরল+দুধ+(৫+লিটার+ফ্যামিলি+প্যাক)+(৳475)+অর্ডার+করতে+চাই।\" class=\"btn btn-whatsapp\" target=\"_blank\" style=\"padding: 10px 12px;\">"
+      },
+      {
+        "line": 350,
+        "text": "<a href=\"https://wa.me/8801775002340?text=হ্যালো+Dairy+Pure+%26+Organic%2C+আমি+DPO+গোল্ড+মেম্বারশিপ+কার্ড+(লাইফটাইম)+(৳50)+অর্ডার+করতে+চাই।\" class=\"btn btn-whatsapp\" target=\"_blank\" style=\"padding: 10px 12px;\">"
+      },
+      {
+        "line": 374,
+        "text": "<a href=\"https://wa.me/8801775002340\" target=\"_blank\" style=\"background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;\" title=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>"
+      },
+      {
+        "line": 407,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801712281861\">+880 1712-281861</a></div>"
+      },
+      {
+        "line": 408,
+        "text": "<div><i class=\"fa-solid fa-phone\" style=\"color: var(--dpo-green); margin-right: 8px;\"></i> <a href=\"tel:+8801734580407\">+880 1734580407</a></div>"
+      },
+      {
+        "line": 409,
+        "text": "<div><i class=\"fa-brands fa-whatsapp\" style=\"color: #25d366; margin-right: 8px;\"></i> <a href=\"https://wa.me/8801775002340\" target=\"_blank\">+880 1775 002 340</a></div>"
+      },
+      {
+        "line": 432,
+        "text": "<a href=\"https://wa.me/8801775002340?text=Hello,%20I%20want%20to%20order%20dairy%20products\" target=\"_blank\" class=\"floating-whatsapp\" title=\"Chat on WhatsApp\" aria-label=\"Chat on WhatsApp\">"
+      }
+    ],
+    "nameMatches": [
+      {
+        "line": 6,
+        "text": "<title>খাঁটি দুধের প্যাকেজ ও দাম | Dairy Pure & Organic</title>"
+      },
+      {
+        "line": 30,
+        "text": "<meta property=\"og:title\" content=\"খাঁটি দুধের প্যাকেজ ও দাম – Dairy Pure & Organic\">"
+      }
+    ]
+  }
+]

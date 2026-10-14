@@ -25,6 +25,8 @@
   
   --cream-bg: #f8fafc;         /* Pure Milk Mist Clean BG */
   --card-bg: #ffffff;
+  --bg-main: #ffffff;
+  --bg-alt: #f8fafc;
   --text-dark: #1e293b;
   --text-muted: #64748b;
   --border-color: #e2e8f0;
@@ -1785,6 +1787,8 @@ body.dark-mode,
 html[data-theme="dark"] body {
   --cream-bg: #070d18;
   --card-bg: #0f192c;
+  --bg-main: #070d18;
+  --bg-alt: #0b1322;
   --text-dark: #f8fafc;
   --text-muted: #94a3b8;
   --border-color: #1e2d42;
@@ -3074,6 +3078,108 @@ html[data-theme="dark"] .product-quickview-btn {
   color: #38bdf8;
   border-color: #334155;
 }
+
+/* ==========================================================================
+   Motion Video Showcase & Alt Sections Dark Mode Styling
+   ========================================================================== */
+
+.farm-video-section {
+  padding: 50px 0 35px;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.farm-video-section .section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 30px;
+}
+
+.farm-video-section .video-player-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 56, 117, 0.12);
+  border: 2px solid rgba(2, 119, 189, 0.25);
+  background: #000;
+  transition: var(--transition);
+}
+
+/* Dark mode overrides for alt background sections */
+body.dark-mode .farm-video-section,
+html[data-theme="dark"] .farm-video-section,
+body.dark-mode .service-areas-section,
+html[data-theme="dark"] .service-areas-section,
+body.dark-mode .guides-cluster-section,
+html[data-theme="dark"] .guides-cluster-section {
+  background: #08101e !important;
+  border-color: #1e2d42 !important;
+}
+
+body.dark-mode .section-subtitle,
+html[data-theme="dark"] .section-subtitle {
+  color: #4ade80 !important;
+}
+
+body.dark-mode .section-title,
+html[data-theme="dark"] .section-title {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .section-desc,
+html[data-theme="dark"] .section-desc {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .video-player-container,
+html[data-theme="dark"] .video-player-container {
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Dark mode for cards with card-bg or bg-alt */
+body.dark-mode .service-areas-section a,
+html[data-theme="dark"] .service-areas-section a,
+body.dark-mode .guides-cluster-section a,
+html[data-theme="dark"] .guides-cluster-section a {
+  background: #0f192c !important;
+  border-color: #1e2d42 !important;
+  color: #f8fafc !important;
+}
+
+body.dark-mode .service-areas-section a h3,
+html[data-theme="dark"] .service-areas-section a h3,
+body.dark-mode .guides-cluster-section a h3,
+html[data-theme="dark"] .guides-cluster-section a h3 {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .service-areas-section a p,
+html[data-theme="dark"] .service-areas-section a p,
+body.dark-mode .guides-cluster-section a p,
+html[data-theme="dark"] .guides-cluster-section a p {
+  color: #94a3b8 !important;
+}
+
+/* Review / testimonial cards using bg-alt */
+body.dark-mode .reviews-section div[style*="background"],
+html[data-theme="dark"] .reviews-section div[style*="background"] {
+  background: #0f192c !important;
+  border-color: #1e2d42 !important;
+}
+
+body.dark-mode .reviews-section p,
+html[data-theme="dark"] .reviews-section p {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode [style*="color: var(--dpo-blue-dark)"],
+html[data-theme="dark"] [style*="color: var(--dpo-blue-dark)"] {
+  color: #38bdf8 !important;
+}
+
 
 
 

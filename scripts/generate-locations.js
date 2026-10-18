@@ -58,6 +58,10 @@ function renderPage(loc) {
       "paymentAccepted": "Cash on Delivery, bKash, Nagad",
       "currenciesAccepted": "BDT",
       "openingHours": "Mo-Su 00:00-24:00",
+      "sameAs": [
+        "https://www.facebook.com/Dairypureorganic",
+        `https://wa.me/${business.whatsapp_raw}`
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": business.address,
@@ -118,7 +122,7 @@ function renderPage(loc) {
   const allServiceAreasHtml = commonServiceAreas.map(sa => {
     const isCurrent = sa.slug === loc.slug;
     return `
-      <a href="${sa.slug}.html" class="service-area-btn ${isCurrent ? 'active' : ''}">
+      <a href="${sa.slug}" class="service-area-btn ${isCurrent ? 'active' : ''}">
         <span><i class="fa-solid ${isCurrent ? 'fa-circle-check' : 'fa-map-pin'}"></i> ${sa.bn} (${sa.name})</span>
         <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i>
       </a>
@@ -246,7 +250,7 @@ function renderPage(loc) {
             <div class="header-wrapper">
                 <!-- Brand Logo -->
                 <div class="site-branding">
-                    <a href="index.html" class="site-logo">
+                    <a href="/" class="site-logo">
                         <img src="assets/images/logo.png" alt="Dairy Pure & Organic Logo" width="48" height="48">
                         <div class="site-logo-text">
                             Dairy Pure
@@ -258,11 +262,11 @@ function renderPage(loc) {
                 <!-- Main Navigation -->
                 <nav class="main-navigation" id="site-navigation">
                     <ul class="nav-menu">
-                        <li><a href="index.html">হোম (Home)</a></li>
-                        <li><a href="shop.html">শপ (Shop)</a></li>
-                        <li><a href="membership.html">মেম্বারশিপ (Membership)</a></li>
-                        <li><a href="about.html">আমাদের সম্পর্কে (About Us)</a></li>
-                        <li><a href="contact.html">যোগাযোগ (Contact Us)</a></li>
+                        <li><a href="/">হোম (Home)</a></li>
+                        <li><a href="shop">শপ (Shop)</a></li>
+                        <li><a href="membership">মেম্বারশিপ (Membership)</a></li>
+                        <li><a href="about">আমাদের সম্পর্কে (About Us)</a></li>
+                        <li><a href="contact">যোগাযোগ (Contact Us)</a></li>
                     </ul>
                 </nav>
 
@@ -292,9 +296,9 @@ function renderPage(loc) {
     <!-- Breadcrumbs -->
     <div class="location-breadcrumbs">
         <div class="container">
-            <a href="index.html"><i class="fa-solid fa-house"></i> হোম</a>
+            <a href="/"><i class="fa-solid fa-house"></i> হোম</a>
             <span>/</span>
-            <a href="index.html#delivery-areas">ডেলিভারি এলাকা</a>
+            <a href="/#delivery-areas">ডেলিভারি এলাকা</a>
             <span>/</span>
             <span class="current">${loc.nameBn} (${loc.nameEn})</span>
         </div>
@@ -379,7 +383,7 @@ function renderPage(loc) {
                     </ul>
 
                     <div style="margin-top: 25px;">
-                        <a href="shop.html" class="btn btn-primary" style="padding: 12px 22px; font-size: 14.5px;">
+                        <a href="shop" class="btn btn-primary" style="padding: 12px 22px; font-size: 14.5px;">
                             <i class="fa-solid fa-bottle-droplet"></i> সকল প্যাকেজ ও রেট দেখুন
                         </a>
                     </div>
@@ -453,8 +457,8 @@ function renderPage(loc) {
 
                 <div class="why-card">
                     <div class="why-icon"><i class="fa-solid fa-id-card"></i></div>
-                    <h3 class="why-title">ফ্রি মেম্বারশিপ সুবিধা</h3>
-                    <p class="why-desc">কোনো ফি ছাড়াই আজীবন মেম্বারশিপ কার্ড এবং প্রতি লিটারে ৫ টাকা নিশ্চিত সাশ্রয় উপভোগ করুন।</p>
+                    <h3 class="why-title">গোল্ড মেম্বারশিপ সুবিধা</h3>
+                    <p class="why-desc">মাত্র ৫০ টাকায় আজীবন মেম্বারশিপ কার্ড এবং প্রতি লিটারে ৫ টাকা নিশ্চিত সাশ্রয় ও প্রায়োরিটি ডেলিভারি উপভোগ করুন।</p>
                 </div>
 
                 <div class="why-card">
@@ -655,7 +659,7 @@ function renderPage(loc) {
                     <a href="${waUrl}" class="btn btn-whatsapp" style="padding: 14px 26px; font-size: 15px;" target="_blank">
                         <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে অর্ডার
                     </a>
-                    <a href="shop.html" class="btn" style="background: #f59e0b; color: #0f172a; font-weight: 800; padding: 14px 26px; border-radius: var(--radius-md);">
+                    <a href="shop" class="btn" style="background: #f59e0b; color: #0f172a; font-weight: 800; padding: 14px 26px; border-radius: var(--radius-md);">
                         <i class="fa-solid fa-basket-shopping"></i> শপ দেখুন
                     </a>
                 </div>
@@ -685,11 +689,11 @@ function renderPage(loc) {
                 <div class="footer-widget">
                     <h4>প্রয়োজনীয় লিংক</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> হোম পেজ</a></li>
-                        <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> আমাদের শপ / পণ্য</a></li>
-                        <li><a href="membership.html"><i class="fa-solid fa-angle-right"></i> মেম্বারশিপ কার্ড</a></li>
-                        <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> আমাদের সম্পর্কে</a></li>
-                        <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> যোগাযোগ ও অর্ডার</a></li>
+                        <li><a href="/"><i class="fa-solid fa-angle-right"></i> হোম পেজ</a></li>
+                        <li><a href="shop"><i class="fa-solid fa-angle-right"></i> আমাদের শপ / পণ্য</a></li>
+                        <li><a href="membership"><i class="fa-solid fa-angle-right"></i> মেম্বারশিপ কার্ড</a></li>
+                        <li><a href="about"><i class="fa-solid fa-angle-right"></i> আমাদের সম্পর্কে</a></li>
+                        <li><a href="contact"><i class="fa-solid fa-angle-right"></i> যোগাযোগ ও অর্ডার</a></li>
                     </ul>
                 </div>
 
@@ -697,13 +701,13 @@ function renderPage(loc) {
                 <div class="footer-widget">
                     <h4>ডেলিভারি এলাকাসমূহ</h4>
                     <ul class="footer-links">
-                        <li><a href="mirpur-cow-milk-home-delivery.html"><i class="fa-solid fa-angle-right"></i> মিরপুর দুধ ডেলিভারি</a></li>
-                        <li><a href="kazipara-cow-milk-home-delivery.html"><i class="fa-solid fa-angle-right"></i> কাজীপাড়া দুধ ডেলিভারি</a></li>
-                        <li><a href="shewrapara-cow-milk-home-delivery.html"><i class="fa-solid fa-angle-right"></i> শেওড়াপাড়া দুধ ডেলিভারি</a></li>
-                        <li><a href="kallyanpur-cow-milk-home-delivery.html"><i class="fa-solid fa-angle-right"></i> কল্যাণপুর দুধ ডেলিভারি</a></li>
-                        <li><a href="rupnagar-cow-milk-home-delivery.html"><i class="fa-solid fa-angle-right"></i> রূপনগর দুধ ডেলিভারি</a></li>
-                        <li><a href="eastern-housing-cow-milk-home-delivery.html"><i class="fa-solid fa-angle-right"></i> ইস্টার্ন হাউজিং ডেলিভারি</a></li>
-                        <li><a href="swapnonagar-cow-milk-home-delivery.html"><i class="fa-solid fa-angle-right"></i> স্বপ্ননগর দুধ ডেলিভারি</a></li>
+                        <li><a href="mirpur-cow-milk-home-delivery"><i class="fa-solid fa-angle-right"></i> মিরপুর দুধ ডেলিভারি</a></li>
+                        <li><a href="kazipara-cow-milk-home-delivery"><i class="fa-solid fa-angle-right"></i> কাজীপাড়া দুধ ডেলিভারি</a></li>
+                        <li><a href="shewrapara-cow-milk-home-delivery"><i class="fa-solid fa-angle-right"></i> শেওড়াপাড়া দুধ ডেলিভারি</a></li>
+                        <li><a href="kallyanpur-cow-milk-home-delivery"><i class="fa-solid fa-angle-right"></i> কল্যাণপুর দুধ ডেলিভারি</a></li>
+                        <li><a href="rupnagar-cow-milk-home-delivery"><i class="fa-solid fa-angle-right"></i> রূপনগর দুধ ডেলিভারি</a></li>
+                        <li><a href="eastern-housing-cow-milk-home-delivery"><i class="fa-solid fa-angle-right"></i> ইস্টার্ন হাউজিং ডেলিভারি</a></li>
+                        <li><a href="swapnonagar-cow-milk-home-delivery"><i class="fa-solid fa-angle-right"></i> স্বপ্ননগর দুধ ডেলিভারি</a></li>
                     </ul>
                 </div>
 
@@ -757,7 +761,7 @@ function renderPage(loc) {
                 <span id="cart-drawer-subtotal" style="color: var(--dpo-blue); font-size: 20px;">৳ 0</span>
             </div>
             <div style="display: flex; flex-direction: column; gap: 10px;">
-                <a href="checkout.html" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 15px;">
+                <a href="checkout" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 15px;">
                     <i class="fa-solid fa-credit-card"></i> চেকআউট করুন
                 </a>
                 <button class="btn btn-whatsapp" id="cart-whatsapp-order" style="width: 100%; padding: 12px; font-size: 15px;">

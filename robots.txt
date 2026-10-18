@@ -3,6 +3,28 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
+# OpenAI Search & AI Crawlers (GEO Visibility)
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Google AI & Search Crawlers
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
 # Host & Sitemap
 Host: https://www.dairypureorganic.com
 Sitemap: https://www.dairypureorganic.com/sitemap.xml
